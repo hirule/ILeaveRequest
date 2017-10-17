@@ -1,0 +1,6 @@
+LoginData #class
+ilea.Login #namespace
+user ilea.User #field
+user PERSISTENT #fieldModifier
+status Boolean #field
+status PERSISTENT #fieldModifier

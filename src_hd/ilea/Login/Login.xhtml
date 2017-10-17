@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+<h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">Login</ui:define>
+		<ui:define name="content">
+
+			<h2>
+				Welcome To Portal
+			</h2>
+			 
+			
+			<h:form id="form">
+				<h:panelGrid columns="3" cellpadding="5">
+					<!-- 
+							<f:facet name="header">
+								<p:messages></p:messages>
+							</f:facet>
+							
+							
+							
+							<br />
+							<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+						 -->
+						 <p:outputLabel value="#{ivy.cms.co('/Labels/UserName')}" for="UserName"/>  
+					<!-- 
+					Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa 
+					-->
+    	 			<p:inputText value="#{data.user.userName}" id="UserName" required="true"/>
+    	 			<p:message for="UserName" display="icon"/>
+
+    	 			<p:outputLabel value="#{ivy.cms.co('/Labels/Password')}" for="Password"/>
+    	 			<h:inputSecret value="#{data.user.password}" id="Password" required="true"></h:inputSecret>
+    	 			<p:message for="Password" display="icon"/>
+    	 			<p:commandButton value="#{ivy.cms.co('/Labels/Login')}" actionListener="#{logic.login}" update="form" id="LoginButton"/>
+    	 			
+    	 			
+    	 			<br/><br/>
+    	 		<span id="outputData"><h:outputText >Data: #{data}</h:outputText></span>
+						 
+				</h:panelGrid>
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,3 @@
+co: name={Password} description={} changed={2017-10-17 10:10:15 CEST} changedby={lhtrung} visualorder={0} guid={15F296189D0680C0} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15F296216703E560} datatype={} isdefault={false} langid={fr} description={} validfrom={2017-10-17 10:09:47 CEST} validto={} changed={2017-10-17 10:10:15 CEST} changedby={lhtrung} properties={} id={}
+val: guid={15F296189D2E11DB} datatype={} isdefault={true} langid={en} description={} validfrom={2017-10-17 10:09:39 CEST} validto={} changed={2017-10-17 10:09:39 CEST} changedby={lhtrung} properties={} id={}

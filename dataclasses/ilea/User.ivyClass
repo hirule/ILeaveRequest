@@ -1,0 +1,6 @@
+User #class
+ilea #namespace
+userName String #field
+userName PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier
