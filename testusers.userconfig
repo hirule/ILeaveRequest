@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <userConfig>
     <user>
-        <username>test</username>
-        <password>ptest</password>
+        <username>e1</username>
+        <password>e1</password>
+        <fullName>Employee 1</fullName>
+        <role>Employee</role>
+    </user>
+    <user>
+        <username>s1</username>
+        <password>s1</password>
+        <fullName>Superior1</fullName>
+        <role>Superrior</role>
     </user>
 </userConfig>

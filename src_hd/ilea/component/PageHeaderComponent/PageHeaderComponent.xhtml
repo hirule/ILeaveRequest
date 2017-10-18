@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:pm="http://primefaces.org/mobile">
+
+<cc:interface componentType="IvyComponent">
+</cc:interface>
+
+<cc:implementation>
+	<div class="row">
+		<div class="col-md-2">
+				<img src="https://image.ibb.co/kNOTfm/images.jpg" alt="Leave Form Logo">
+		</div>
+
+		<div class="col-md-10">
+
+			<div class="row" style="text-align: center;">
+				<h1><h:outputText value="#{ivy.cms.co('/title/LeaveRequest')}"></h:outputText></h1>
+			</div>
+			<h:panelGroup layout="block" rendered="#{not empty data.userName}"
+				class="row" style="text-align:right">
+				<p>
+					Welcome,
+					<h:outputText value="#{data.userFullName}"></h:outputText>
+					<span> * <h:form>
+							<h:commandLink value="Log Out" actionListener="#{logic.userClickLogOutLink}"/>
+						</h:form>
+					</span>
+				</p>
+			</h:panelGroup>
+		</div>
+	</div>
+</cc:implementation>
+</html>

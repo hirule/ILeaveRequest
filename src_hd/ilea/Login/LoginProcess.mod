@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 17 18:35:10 ICT 2017]
+[>Created: Wed Oct 18 18:28:15 ICT 2017]
 15F2947B6D8FEF4A 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -28,10 +28,10 @@ Ls0 @GridStep f9 '' #zField
 Ls0 @PushWFArc f12 '' #zField
 Ls0 @PushWFArc f11 '' #zField
 Ls0 @RichDialogEnd f13 '' #zField
-Ls0 @PushWFArc f14 '' #zField
 Ls0 @GridStep f15 '' #zField
 Ls0 @PushWFArc f16 '' #zField
 Ls0 @PushWFArc f2 '' #zField
+Ls0 @PushWFArc f14 '' #zField
 >Proto Ls0 Ls0 LoginProcess #zField
 Ls0 f0 guid 15F2947B6E13325D #txt
 Ls0 f0 type ilea.Login.LoginData #txt
@@ -99,10 +99,13 @@ Ls0 f10 type ilea.Login.LoginData #txt
 Ls0 f10 336 288 32 32 0 16 #rect
 Ls0 f10 @|AlternativeIcon #fIcon
 Ls0 f8 expr in #txt
+Ls0 f8 outCond 'in.status == false' #txt
 Ls0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name></name>
+        <name>not success</name>
+        <nameStyle>11,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
@@ -135,20 +138,8 @@ Ls0 f11 expr out #txt
 Ls0 f11 280 304 336 304 #arcP
 Ls0 f13 type ilea.Login.LoginData #txt
 Ls0 f13 guid 15F2A131698F9F3B #txt
-Ls0 f13 339 387 26 26 0 12 #rect
+Ls0 f13 339 483 26 26 0 12 #rect
 Ls0 f13 @|RichDialogEndIcon #fIcon
-Ls0 f14 expr in #txt
-Ls0 f14 outCond 'in.status == true' #txt
-Ls0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>yes</name>
-        <nameStyle>3,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ls0 f14 352 320 352 387 #arcP
 Ls0 f15 actionDecl 'ilea.Login.LoginData out;
 ' #txt
 Ls0 f15 actionTable 'out=in;
@@ -156,12 +147,33 @@ Ls0 f15 actionTable 'out=in;
 Ls0 f15 actionCode 'import ilea.User;
 in.user = new User();' #txt
 Ls0 f15 type ilea.Login.LoginData #txt
-Ls0 f15 168 42 112 44 0 -8 #rect
+Ls0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Initial Data</name>
+        <nameStyle>12,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f15 168 42 112 44 -29 -8 #rect
 Ls0 f15 @|StepIcon #fIcon
 Ls0 f16 expr out #txt
 Ls0 f16 109 64 168 64 #arcP
 Ls0 f2 expr out #txt
 Ls0 f2 280 64 339 64 #arcP
+Ls0 f14 expr in #txt
+Ls0 f14 outCond 'in.status == true' #txt
+Ls0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>success</name>
+        <nameStyle>7,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f14 352 320 352 483 #arcP
 >Proto Ls0 .type ilea.Login.LoginData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
@@ -174,9 +186,9 @@ Ls0 f6 mainOut f12 tail #connect
 Ls0 f12 head f9 mainIn #connect
 Ls0 f9 mainOut f11 tail #connect
 Ls0 f11 head f10 in #connect
-Ls0 f10 out f14 tail #connect
-Ls0 f14 head f13 mainIn #connect
 Ls0 f0 mainOut f16 tail #connect
 Ls0 f16 head f15 mainIn #connect
 Ls0 f15 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
+Ls0 f10 out f14 tail #connect
+Ls0 f14 head f13 mainIn #connect

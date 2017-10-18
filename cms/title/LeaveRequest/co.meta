@@ -1,0 +1,3 @@
+co: name={LeaveRequest} description={} changed={2017-10-18 10:08:16 CEST} changedby={lhtrung} visualorder={0} guid={15F2E7E2628D93C2} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15F2E86A0A896716} datatype={} isdefault={false} langid={fr} description={} validfrom={2017-10-18 09:59:13 CEST} validto={} changed={2017-10-18 10:08:15 CEST} changedby={lhtrung} properties={} id={}
+val: guid={15F2E7E262B167DE} datatype={} isdefault={true} langid={en} description={} validfrom={2017-10-18 09:59:00 CEST} validto={} changed={2017-10-18 09:59:00 CEST} changedby={lhtrung} properties={} id={}

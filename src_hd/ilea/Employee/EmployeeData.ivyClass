@@ -1,0 +1,4 @@
+EmployeeData #class
+ilea.Employee #namespace
+data ilea.Data #field
+data PERSISTENT #fieldModifier

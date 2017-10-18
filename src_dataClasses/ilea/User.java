@@ -7,7 +7,7 @@ package ilea;
 public class User extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2924147475406662873L;
+  private static final long serialVersionUID = 3623193916428790661L;
 
   private java.lang.String userName;
 
@@ -47,6 +47,26 @@ public class User extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setPassword(java.lang.String _password)
   {
     password = _password;
+  }
+
+  private java.lang.String fullName;
+
+  /**
+   * Gets the field fullName.
+   * @return the value of the field fullName; may be null.
+   */
+  public java.lang.String getFullName()
+  {
+    return fullName;
+  }
+
+  /**
+   * Sets the field fullName.
+   * @param _fullName the new value of the field fullName.
+   */
+  public void setFullName(java.lang.String _fullName)
+  {
+    fullName = _fullName;
   }
 
 }

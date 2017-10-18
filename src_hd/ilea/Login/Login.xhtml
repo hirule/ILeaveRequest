@@ -12,22 +12,11 @@
 		<ui:define name="content">
 
 			<h2>
-				Welcome To Portal
+				<h:outputText value="#{ivy.cms.co('/title/WelcomePortal')}"></h:outputText>
 			</h2>
-			 
 			
 			<h:form id="form">
 				<h:panelGrid columns="3" cellpadding="5">
-					<!-- 
-							<f:facet name="header">
-								<p:messages></p:messages>
-							</f:facet>
-							
-							
-							
-							<br />
-							<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
-						 -->
 						 <p:outputLabel value="#{ivy.cms.co('/Labels/UserName')}" for="UserName"/>  
 					<!-- 
 					Use #{data.name} to map the name HtmlDialog data attribute to the UI widget text and vice versa 

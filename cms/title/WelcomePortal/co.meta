@@ -1,0 +1,3 @@
+co: name={WelcomePortal} description={} changed={2017-10-18 10:19:27 CEST} changedby={lhtrung} visualorder={0} guid={15F2E8D52D9170D1} parentguid={} typeguid={E6AFEA2034301F66} id={} parentid={} typeid={}
+val: guid={15F2E8D52DCBFB6D} datatype={} isdefault={true} langid={en} description={} validfrom={2017-10-18 10:15:34 CEST} validto={} changed={2017-10-18 10:15:34 CEST} changedby={lhtrung} properties={} id={}
+val: guid={15F2E8D8F891B89E} datatype={} isdefault={false} langid={fr} description={} validfrom={2017-10-18 10:15:46 CEST} validto={} changed={2017-10-18 10:15:50 CEST} changedby={lhtrung} properties={} id={}

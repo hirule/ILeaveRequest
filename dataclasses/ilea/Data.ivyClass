@@ -1,2 +1,4 @@
 Data #class
 ilea #namespace
+currentRole String #field
+currentRole PERSISTENT #fieldModifier
