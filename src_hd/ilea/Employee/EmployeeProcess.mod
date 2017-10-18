@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 18 14:20:21 ICT 2017]
+[>Created: Wed Oct 18 18:57:46 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -17,10 +17,12 @@ Es0 @TextInP .xml .xml #zField
 Es0 @TextInP .responsibility .responsibility #zField
 Es0 @RichDialogInitStart f0 '' #zField
 Es0 @RichDialogProcessEnd f1 '' #zField
-Es0 @PushWFArc f2 '' #zField
 Es0 @RichDialogProcessStart f3 '' #zField
 Es0 @RichDialogEnd f4 '' #zField
 Es0 @PushWFArc f5 '' #zField
+Es0 @GridStep f6 '' #zField
+Es0 @PushWFArc f7 '' #zField
+Es0 @PushWFArc f2 '' #zField
 >Proto Es0 Es0 EmployeeProcess #zField
 Es0 f0 guid 15F2E5AC6C7B6C91 #txt
 Es0 f0 type ilea.Employee.EmployeeData #txt
@@ -45,10 +47,8 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Es0 f0 83 51 26 26 -29 15 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ilea.Employee.EmployeeData #txt
-Es0 f1 211 51 26 26 0 12 #rect
+Es0 f1 339 51 26 26 0 12 #rect
 Es0 f1 @|RichDialogProcessEndIcon #fIcon
-Es0 f2 expr out #txt
-Es0 f2 109 64 211 64 #arcP
 Es0 f3 guid 15F2E5AC6D897252 #txt
 Es0 f3 type ilea.Employee.EmployeeData #txt
 Es0 f3 actionDecl 'ilea.Employee.EmployeeData out;
@@ -70,11 +70,33 @@ Es0 f4 211 147 26 26 0 12 #rect
 Es0 f4 @|RichDialogEndIcon #fIcon
 Es0 f5 expr out #txt
 Es0 f5 109 160 211 160 #arcP
+Es0 f6 actionDecl 'ilea.Employee.EmployeeData out;
+' #txt
+Es0 f6 actionTable 'out=in;
+' #txt
+Es0 f6 type ilea.Employee.EmployeeData #txt
+Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Init Data</name>
+        <nameStyle>9,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Es0 f6 168 42 112 44 -22 -8 #rect
+Es0 f6 @|StepIcon #fIcon
+Es0 f7 expr out #txt
+Es0 f7 109 64 168 64 #arcP
+Es0 f2 expr out #txt
+Es0 f2 280 64 339 64 #arcP
 >Proto Es0 .type ilea.Employee.EmployeeData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
 >Proto Es0 '' #fIcon
-Es0 f0 mainOut f2 tail #connect
-Es0 f2 head f1 mainIn #connect
 Es0 f3 mainOut f5 tail #connect
 Es0 f5 head f4 mainIn #connect
+Es0 f0 mainOut f7 tail #connect
+Es0 f7 head f6 mainIn #connect
+Es0 f6 mainOut f2 tail #connect
+Es0 f2 head f1 mainIn #connect
