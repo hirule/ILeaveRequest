@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 18 18:57:46 ICT 2017]
+[>Created: Thu Oct 19 10:48:20 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -74,6 +74,8 @@ Es0 f6 actionDecl 'ilea.Employee.EmployeeData out;
 ' #txt
 Es0 f6 actionTable 'out=in;
 ' #txt
+Es0 f6 actionCode 'import login.LoginUtil;
+out.user.fullName = LoginUtil.getFullName().get().toString();' #txt
 Es0 f6 type ilea.Employee.EmployeeData #txt
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

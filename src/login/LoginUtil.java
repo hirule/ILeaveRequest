@@ -1,12 +1,14 @@
 package login;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.util.Optional;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion.User;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+
+import org.jfree.util.Log;
 
 import ch.ivyteam.ivy.environment.Ivy;
-import ch.ivyteam.ivy.security.IRole;
 import ch.ivyteam.ivy.security.IUser;
 
 public class LoginUtil {
@@ -18,24 +20,43 @@ public class LoginUtil {
 	
 	public static void logOut() {
 		Ivy.session().logoutSessionUser();
-	}
-	
 		
-	private static void testCodeTemp() {
-		IRole irole = Ivy.session().getSessionRole();
-		IUser iUser = Ivy.session().getSessionUser();
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		Ivy.log().info(externalContext.getApplicationContextPath());
+//		String targetUrl = externalContext.getApplicationContextPath() +"/wf/index.jsp?pageId=personalTasklist";
+//		http://localhost:8081/ivy/wf/index.jsp?pageId=personalTasklist
+		
+		// TODO: Trung: targetUrl should be added to config
+		/*
+		String targetUrl = externalContext.getApplicationContextPath() +"/faces/instances/15F32D5D995DE154/Login.xhtml";
+//		http://localhost:8081/ivy/faces/instances/15F32D5D995DE154/Login.xhtml
+		 try {
+			externalContext.redirect(targetUrl);
+		} catch (IOException e) {
+			Log.error(e);
+		}
+		*/
 	}
 	
-//    public static boolean hasRole(LoginRoleType loginRoleType) {
-//    	List<IRole> roles = new ArrayList<>();
-//    	roles = Ivy.session().getSessionUser().getRoles();
-////    	return roles.contains(roles);
-//    	IRole iRole = Ivy.request().getApplication().getSecurityContext().findRole(String.valueOf(LoginRoleType.EMPLOYEE));
-//    	return Ivy.session().hasRole(iRole, false);
-//    }
-    
-    public static IRole getUserRole() {
-    	return Ivy.session().getSessionRole().getRoles().get(1);
-    }
+	public static Optional<String> getFullName(){
+		IUser user = Ivy.session().getSessionUser();
+		if(user == null){
+			return Optional.empty();
+		}
+		else{
+			String userFullName = user.getFullName();
+			return Optional.of(userFullName);			
+		}
+	}
 	
+	public static Optional<String> getUserName(){
+		IUser user = Ivy.session().getSessionUser();
+		if(user == null){
+			return Optional.empty();
+		}
+		else{
+			String username = user.getName();
+			return Optional.of(username);
+		}
+	}
 }

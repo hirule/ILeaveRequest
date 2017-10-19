@@ -1,33 +1,13 @@
-package ilea.Employee;
+package ilea;
 
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class EmployeeData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
-public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
+@javax.annotation.Generated(comments="This is the java file of the ivy data class LeaveRequestRecord", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+public class LeaveRequestRecord extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -3966100200578498710L;
-
-  private ilea.Data data;
-
-  /**
-   * Gets the field data.
-   * @return the value of the field data; may be null.
-   */
-  public ilea.Data getData()
-  {
-    return data;
-  }
-
-  /**
-   * Sets the field data.
-   * @param _data the new value of the field data.
-   */
-  public void setData(ilea.Data _data)
-  {
-    data = _data;
-  }
+  private static final long serialVersionUID = 6775338626159878539L;
 
   private ilea.User user;
 
@@ -67,6 +47,26 @@ public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObje
   public void setLeaveRequestSection(ilea.LeaveRequestSection _leaveRequestSection)
   {
     leaveRequestSection = _leaveRequestSection;
+  }
+
+  private java.lang.String id;
+
+  /**
+   * Gets the field id.
+   * @return the value of the field id; may be null.
+   */
+  public java.lang.String getId()
+  {
+    return id;
+  }
+
+  /**
+   * Sets the field id.
+   * @param _id the new value of the field id.
+   */
+  public void setId(java.lang.String _id)
+  {
+    id = _id;
   }
 
 }

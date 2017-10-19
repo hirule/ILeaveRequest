@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 18 17:28:36 ICT 2017]
+[>Created: Thu Oct 19 13:55:00 ICT 2017]
 15F2E5F8FF71E34C 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PageHeaderComponentProcess Big #zClass
@@ -17,7 +17,6 @@ Ps0 @TextInP .xml .xml #zField
 Ps0 @TextInP .responsibility .responsibility #zField
 Ps0 @RichDialogInitStart f0 '' #zField
 Ps0 @RichDialogProcessEnd f1 '' #zField
-Ps0 @PushWFArc f2 '' #zField
 Ps0 @RichDialogProcessStart f3 '' #zField
 Ps0 @RichDialogEnd f4 '' #zField
 Ps0 @PushWFArc f5 '' #zField
@@ -25,7 +24,10 @@ Ps0 @RichDialogProcessStart f6 '' #zField
 Ps0 @RichDialogEnd f7 '' #zField
 Ps0 @GridStep f9 '' #zField
 Ps0 @PushWFArc f10 '' #zField
-Ps0 @PushWFArc f8 '' #zField
+Ps0 @GridStep f11 '' #zField
+Ps0 @PushWFArc f12 '' #zField
+Ps0 @PushWFArc f2 '' #zField
+Ps0 @CallSub f8 '' #zField
 >Proto Ps0 Ps0 PageHeaderComponentProcess #zField
 Ps0 f0 guid 15F2E5F9002C36BA #txt
 Ps0 f0 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
@@ -46,10 +48,8 @@ Ps0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ps0 f0 83 51 26 26 -16 15 #rect
 Ps0 f0 @|RichDialogInitStartIcon #fIcon
 Ps0 f1 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
-Ps0 f1 211 51 26 26 0 12 #rect
+Ps0 f1 339 51 26 26 0 12 #rect
 Ps0 f1 @|RichDialogProcessEndIcon #fIcon
-Ps0 f2 expr out #txt
-Ps0 f2 109 64 211 64 #arcP
 Ps0 f3 guid 15F2E5F900CE63F4 #txt
 Ps0 f3 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 Ps0 f3 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
@@ -90,7 +90,7 @@ Ps0 f6 83 275 26 26 -18 15 #rect
 Ps0 f6 @|RichDialogProcessStartIcon #fIcon
 Ps0 f7 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 Ps0 f7 guid 15F2F01CE7D7DF83 #txt
-Ps0 f7 339 275 26 26 0 12 #rect
+Ps0 f7 499 275 26 26 0 12 #rect
 Ps0 f7 @|RichDialogEndIcon #fIcon
 Ps0 f9 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
 ' #txt
@@ -112,17 +112,50 @@ Ps0 f9 168 266 112 44 -21 -8 #rect
 Ps0 f9 @|StepIcon #fIcon
 Ps0 f10 expr out #txt
 Ps0 f10 109 288 168 288 #arcP
-Ps0 f8 expr out #txt
-Ps0 f8 280 288 339 288 #arcP
+Ps0 f11 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
+' #txt
+Ps0 f11 actionTable 'out=in;
+' #txt
+Ps0 f11 actionCode 'import ilea.User;
+import login.LoginUtil;
+User user = new User();
+user.fullName = LoginUtil.getFullName().get().toString();
+user.userName = LoginUtil.getUserName().get().toString();
+out.user = user;
+' #txt
+Ps0 f11 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
+Ps0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Initiate Data</name>
+        <nameStyle>13,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f11 168 42 112 44 -32 -8 #rect
+Ps0 f11 @|StepIcon #fIcon
+Ps0 f12 expr out #txt
+Ps0 f12 109 64 168 64 #arcP
+Ps0 f2 expr out #txt
+Ps0 f2 280 64 339 64 #arcP
+Ps0 f8 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
+Ps0 f8 doCall false #txt
+Ps0 f8 responseActionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
+' #txt
+Ps0 f8 responseMappingAction 'out=in;
+' #txt
+Ps0 f8 312 266 112 44 0 -8 #rect
+Ps0 f8 @|CallSubIcon #fIcon
 >Proto Ps0 .type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
 >Proto Ps0 '' #fIcon
-Ps0 f0 mainOut f2 tail #connect
-Ps0 f2 head f1 mainIn #connect
 Ps0 f3 mainOut f5 tail #connect
 Ps0 f5 head f4 mainIn #connect
 Ps0 f6 mainOut f10 tail #connect
 Ps0 f10 head f9 mainIn #connect
-Ps0 f9 mainOut f8 tail #connect
-Ps0 f8 head f7 mainIn #connect
+Ps0 f0 mainOut f12 tail #connect
+Ps0 f12 head f11 mainIn #connect
+Ps0 f11 mainOut f2 tail #connect
+Ps0 f2 head f1 mainIn #connect

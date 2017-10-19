@@ -1,0 +1,8 @@
+LeaveRequestSection #class
+ilea #namespace
+startDate Date #field
+startDate PERSISTENT #fieldModifier
+endDate Date #field
+endDate PERSISTENT #fieldModifier
+leaveRequestType ilea.bean.LeaveRequestType #field
+leaveRequestType PERSISTENT #fieldModifier

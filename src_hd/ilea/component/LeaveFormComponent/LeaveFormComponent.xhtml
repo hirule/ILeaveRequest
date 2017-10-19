@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:ic="http://ivyteam.ch/jsf/component"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:pm="http://primefaces.org/mobile">
+      
+  <cc:interface componentType="IvyComponent">
+  </cc:interface>
+  
+  <cc:implementation>
+    <!-- Employee Info section -->
+    <div class="panel-heading">Employee Information</div>
+    <h:panelGrid columns="2">
+		    <p:outputLabel for="fullName" value="Fullname:"/>
+    		<p:outputLabel value="#{data.user.fullName}"></p:outputLabel>
+    		<p:outputLabel for="email" value="Email:"/>
+    <p:outputLabel value="#{data.user.email}"></p:outputLabel>    
+    </h:panelGrid>
+    <br></br>
+    
+    <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
+    <div class="panel-heading">Leave Request</div>
+    <h:form id="form-leave-request-section">
+				<h:panelGrid columns="2">
+				<!-- 
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					 -->
+					
+					<p:outputLabel for="startDate" value="Start Date:"/>
+					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
+					
+					<p:outputLabel for="endDate" value="End Date:"/>
+					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
+					
+					<p:outputLabel for="leave-type" value="Type:"/>
+					<p:selectOneRadio id="leaveTypeRadio" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection">
+			            <ui:repeat var="leaveType" value="#{data.leaveTypeList}">
+				        	 <f:selectItem id="leave-type-select" itemLabel="#{leaveType}" itemValue="#{leaveType}"/>
+				      </ui:repeat>
+			        </p:selectOneRadio>
+					
+					<br />
+					
+					<p:commandButton actionListener="#{logic.submit}" value="Submit" update="form" icon="ui-icon-check" />
+				</h:panelGrid>
+			</h:form>
+    
+  </cc:implementation>
+</html>
