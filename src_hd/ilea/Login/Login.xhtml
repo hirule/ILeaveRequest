@@ -25,7 +25,7 @@
     	 			<p:message for="UserName" display="icon"/>
 
     	 			<p:outputLabel value="#{ivy.cms.co('/Labels/Password')}" for="Password"/>
-    	 			<h:inputSecret value="#{data.user.password}" id="Password" required="true"></h:inputSecret>
+    	 			<p:password value="#{data.user.password}" id="Password" required="true"></p:password>
     	 			<p:message for="Password" display="icon"/>
     	 			<p:commandButton value="#{ivy.cms.co('/Labels/Login')}" actionListener="#{logic.login}" update="form" id="LoginButton"/>
     	 			

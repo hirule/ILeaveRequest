@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 18 18:28:15 ICT 2017]
+[>Created: Fri Oct 20 08:46:29 ICT 2017]
 15F2947B6D8FEF4A 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginProcess Big #zClass
@@ -22,16 +22,16 @@ Ls0 @RichDialogEnd f4 '' #zField
 Ls0 @PushWFArc f5 '' #zField
 Ls0 @RichDialogProcessStart f6 '' #zField
 Ls0 @RichDialogProcessEnd f7 '' #zField
-Ls0 @Alternative f10 '' #zField
-Ls0 @PushWFArc f8 '' #zField
 Ls0 @GridStep f9 '' #zField
 Ls0 @PushWFArc f12 '' #zField
-Ls0 @PushWFArc f11 '' #zField
-Ls0 @RichDialogEnd f13 '' #zField
 Ls0 @GridStep f15 '' #zField
 Ls0 @PushWFArc f16 '' #zField
 Ls0 @PushWFArc f2 '' #zField
+Ls0 @PushWFArc f11 '' #zField
+Ls0 @PushWFArc f8 '' #zField
+Ls0 @Alternative f10 '' #zField
 Ls0 @PushWFArc f14 '' #zField
+Ls0 @RichDialogEnd f13 '' #zField
 >Proto Ls0 Ls0 LoginProcess #zField
 Ls0 f0 guid 15F2947B6E13325D #txt
 Ls0 f0 type ilea.Login.LoginData #txt
@@ -95,23 +95,6 @@ Ls0 f6 @|RichDialogProcessStartIcon #fIcon
 Ls0 f7 type ilea.Login.LoginData #txt
 Ls0 f7 435 243 26 26 0 12 #rect
 Ls0 f7 @|RichDialogProcessEndIcon #fIcon
-Ls0 f10 type ilea.Login.LoginData #txt
-Ls0 f10 336 288 32 32 0 16 #rect
-Ls0 f10 @|AlternativeIcon #fIcon
-Ls0 f8 expr in #txt
-Ls0 f8 outCond 'in.status == false' #txt
-Ls0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>not success</name>
-        <nameStyle>11,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ls0 f8 368 304 448 269 #arcP
-Ls0 f8 1 448 304 #addKink
-Ls0 f8 1 0.5 0 0 #arcLabel
 Ls0 f9 actionDecl 'ilea.Login.LoginData out;
 ' #txt
 Ls0 f9 actionTable 'out=in;
@@ -134,12 +117,6 @@ Ls0 f12 expr out #txt
 Ls0 f12 96 269 168 304 #arcP
 Ls0 f12 1 96 304 #addKink
 Ls0 f12 1 0.5 0 0 #arcLabel
-Ls0 f11 expr out #txt
-Ls0 f11 280 304 336 304 #arcP
-Ls0 f13 type ilea.Login.LoginData #txt
-Ls0 f13 guid 15F2A131698F9F3B #txt
-Ls0 f13 339 483 26 26 0 12 #rect
-Ls0 f13 @|RichDialogEndIcon #fIcon
 Ls0 f15 actionDecl 'ilea.Login.LoginData out;
 ' #txt
 Ls0 f15 actionTable 'out=in;
@@ -162,6 +139,25 @@ Ls0 f16 expr out #txt
 Ls0 f16 109 64 168 64 #arcP
 Ls0 f2 expr out #txt
 Ls0 f2 280 64 339 64 #arcP
+Ls0 f11 expr out #txt
+Ls0 f11 280 304 336 304 #arcP
+Ls0 f8 expr in #txt
+Ls0 f8 outCond 'in.status == false' #txt
+Ls0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>not success</name>
+        <nameStyle>11,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f8 368 304 448 269 #arcP
+Ls0 f8 1 448 304 #addKink
+Ls0 f8 1 0.5 0 0 #arcLabel
+Ls0 f10 type ilea.Login.LoginData #txt
+Ls0 f10 336 288 32 32 0 16 #rect
+Ls0 f10 @|AlternativeIcon #fIcon
 Ls0 f14 expr in #txt
 Ls0 f14 outCond 'in.status == true' #txt
 Ls0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -174,6 +170,10 @@ Ls0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Ls0 f14 352 320 352 483 #arcP
+Ls0 f13 type ilea.Login.LoginData #txt
+Ls0 f13 guid 15F2A131698F9F3B #txt
+Ls0 f13 339 483 26 26 0 12 #rect
+Ls0 f13 @|RichDialogEndIcon #fIcon
 >Proto Ls0 .type ilea.Login.LoginData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect

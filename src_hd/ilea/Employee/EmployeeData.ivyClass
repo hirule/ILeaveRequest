@@ -1,8 +1,8 @@
 EmployeeData #class
 ilea.Employee #namespace
-data ilea.Data #field
-data PERSISTENT #fieldModifier
 user ilea.User #field
 user PERSISTENT #fieldModifier
 leaveRequestSection ilea.LeaveRequestSection #field
 leaveRequestSection PERSISTENT #fieldModifier
+key ilea.Data #field
+key PERSISTENT #fieldModifier

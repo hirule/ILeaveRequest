@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 19 17:24:05 ICT 2017]
+[>Created: Fri Oct 20 17:47:47 ICT 2017]
 15F332C4B17B1746 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveFormComponentProcess Big #zClass
@@ -19,10 +19,12 @@ Ls0 @RichDialogInitStart f0 '' #zField
 Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @RichDialogProcessStart f3 '' #zField
 Ls0 @RichDialogEnd f4 '' #zField
-Ls0 @PushWFArc f5 '' #zField
 Ls0 @GridStep f6 '' #zField
 Ls0 @PushWFArc f7 '' #zField
 Ls0 @PushWFArc f2 '' #zField
+Ls0 @GridStep f8 '' #zField
+Ls0 @PushWFArc f9 '' #zField
+Ls0 @PushWFArc f5 '' #zField
 >Proto Ls0 Ls0 LeaveFormComponentProcess #zField
 Ls0 f0 guid 15F332C4B2FC47C8 #txt
 Ls0 f0 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
@@ -64,18 +66,30 @@ Ls0 f3 83 147 26 26 -19 15 #rect
 Ls0 f3 @|RichDialogProcessStartIcon #fIcon
 Ls0 f4 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
 Ls0 f4 guid 15F332C4B4139E69 #txt
-Ls0 f4 211 147 26 26 0 12 #rect
+Ls0 f4 339 147 26 26 0 12 #rect
 Ls0 f4 @|RichDialogEndIcon #fIcon
-Ls0 f5 expr out #txt
-Ls0 f5 109 160 211 160 #arcP
 Ls0 f6 actionDecl 'ilea.component.LeaveFormComponent.LeaveFormComponentData out;
 ' #txt
 Ls0 f6 actionTable 'out=in;
 ' #txt
-Ls0 f6 actionCode 'import ilea.bean.LeaveRequestType;
+Ls0 f6 actionCode 'import ilea.LeaveRequestSection;
+import ilea.bean.LeaveRequestType;
+import ilea.User;
+import login.LoginUtil;
+
 for (LeaveRequestType leaveReason : LeaveRequestType.values()) {
 	out.leaveTypeList.add(leaveReason.getText());
 }
+
+LeaveRequestSection leaveRequestSection = new LeaveRequestSection();
+out.leaveRequestSection = leaveRequestSection;
+
+User user = new User();
+user.fullName = LoginUtil.getFullName().get().toString();
+user.userName = LoginUtil.getUserName().get().toString();
+user.email = "test@tk.com";
+out.user = user;
+
 	' #txt
 Ls0 f6 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
 Ls0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -93,13 +107,36 @@ Ls0 f7 expr out #txt
 Ls0 f7 109 64 168 64 #arcP
 Ls0 f2 expr out #txt
 Ls0 f2 280 64 339 64 #arcP
+Ls0 f8 actionDecl 'ilea.component.LeaveFormComponent.LeaveFormComponentData out;
+' #txt
+Ls0 f8 actionTable 'out=in;
+' #txt
+Ls0 f8 actionCode ivy.wf.signals().send("leave:created:"+in.user.userName); #txt
+Ls0 f8 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
+Ls0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Send Signal ''leave:created''</name>
+        <nameStyle>27,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f8 144 136 160 48 -73 -8 #rect
+Ls0 f8 @|StepIcon #fIcon
+Ls0 f9 expr out #txt
+Ls0 f9 109 160 144 160 #arcP
+Ls0 f5 expr out #txt
+Ls0 f5 304 160 339 160 #arcP
 >Proto Ls0 .type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
 >Proto Ls0 '' #fIcon
-Ls0 f3 mainOut f5 tail #connect
-Ls0 f5 head f4 mainIn #connect
 Ls0 f0 mainOut f7 tail #connect
 Ls0 f7 head f6 mainIn #connect
 Ls0 f6 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
+Ls0 f3 mainOut f9 tail #connect
+Ls0 f9 head f8 mainIn #connect
+Ls0 f8 mainOut f5 tail #connect
+Ls0 f5 head f4 mainIn #connect

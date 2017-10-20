@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 19 13:55:00 ICT 2017]
+[>Created: Thu Oct 19 17:36:06 ICT 2017]
 15F2E5F8FF71E34C 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PageHeaderComponentProcess Big #zClass
@@ -27,7 +27,7 @@ Ps0 @PushWFArc f10 '' #zField
 Ps0 @GridStep f11 '' #zField
 Ps0 @PushWFArc f12 '' #zField
 Ps0 @PushWFArc f2 '' #zField
-Ps0 @CallSub f8 '' #zField
+Ps0 @PushWFArc f8 '' #zField
 >Proto Ps0 Ps0 PageHeaderComponentProcess #zField
 Ps0 f0 guid 15F2E5F9002C36BA #txt
 Ps0 f0 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
@@ -139,14 +139,8 @@ Ps0 f12 expr out #txt
 Ps0 f12 109 64 168 64 #arcP
 Ps0 f2 expr out #txt
 Ps0 f2 280 64 339 64 #arcP
-Ps0 f8 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
-Ps0 f8 doCall false #txt
-Ps0 f8 responseActionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
-' #txt
-Ps0 f8 responseMappingAction 'out=in;
-' #txt
-Ps0 f8 312 266 112 44 0 -8 #rect
-Ps0 f8 @|CallSubIcon #fIcon
+Ps0 f8 expr out #txt
+Ps0 f8 280 288 499 288 #arcP
 >Proto Ps0 .type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
@@ -159,3 +153,5 @@ Ps0 f0 mainOut f12 tail #connect
 Ps0 f12 head f11 mainIn #connect
 Ps0 f11 mainOut f2 tail #connect
 Ps0 f2 head f1 mainIn #connect
+Ps0 f9 mainOut f8 tail #connect
+Ps0 f8 head f7 mainIn #connect

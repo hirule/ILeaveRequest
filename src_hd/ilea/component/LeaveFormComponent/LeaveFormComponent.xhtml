@@ -13,17 +13,17 @@
   
   <cc:implementation>
     <!-- Employee Info section -->
-    <div class="panel-heading">Employee Information</div>
+    <h3>Employee Information</h3>
     <h:panelGrid columns="2">
-		    <p:outputLabel for="fullName" value="Fullname:"/>
+		    <p:outputLabel value="Fullname:"/>
     		<p:outputLabel value="#{data.user.fullName}"></p:outputLabel>
-    		<p:outputLabel for="email" value="Email:"/>
-    <p:outputLabel value="#{data.user.email}"></p:outputLabel>    
+    		<p:outputLabel value="Email:"/>
+    		<p:outputLabel value="#{data.user.email}"></p:outputLabel>    
     </h:panelGrid>
     <br></br>
     
     <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
-    <div class="panel-heading">Leave Request</div>
+    <h3>Leave Request</h3>
     <h:form id="form-leave-request-section">
 				<h:panelGrid columns="2">
 				<!-- 
@@ -43,15 +43,13 @@
 					</p:calendar>
 					
 					<p:outputLabel for="leave-type" value="Type:"/>
-					<p:selectOneRadio id="leaveTypeRadio" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection">
-			            <ui:repeat var="leaveType" value="#{data.leaveTypeList}">
-				        	 <f:selectItem id="leave-type-select" itemLabel="#{leaveType}" itemValue="#{leaveType}"/>
-				      </ui:repeat>
+					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection">
+				    	<f:selectItems value="#{data.leaveTypeList}" var="leaveType"
+				    	itemLabel="#{leaveType}" itemValue="#{leaveType}" />
 			        </p:selectOneRadio>
-					
 					<br />
 					
-					<p:commandButton actionListener="#{logic.submit}" value="Submit" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.submit}" value="Submit" update="form-leave-request-section" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
     

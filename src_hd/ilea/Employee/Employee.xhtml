@@ -7,12 +7,28 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
+	<ui:composition template="/layouts/basic.xhtml">
+		<ui:define name="title">LeaveRequest</ui:define>
+		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
+		<ui:define name="content">
 	<!-- Page header -->
-	<ui:include src="PageHeaderComponent.xhtml"></ui:include>
+	
+	
 	
 	<!-- Employee Information -->
 	
 	<!-- Leave Form -->
-	<ui:include src="LeaveFormComponent.xhtml"></ui:include>
+<!-- 	<ui:include src="LeaveFormComponent.xhtml"></ui:include> -->
+	<ic:ilea.component.LeaveFormComponent
+		id="leave-form-component"
+		fullName="#{data.user.fullName}"
+		email="#{data.user.email}"
+		startDate="#{data.leaveRequestSection.startDate}"
+		endDate="#{data.leaveRequestSection.endDate}"
+		leaveType="#{data.leaveRequestSection.leaveRequestType}"
+		>
+	</ic:ilea.component.LeaveFormComponent>
+	</ui:define>
+	</ui:composition>
 </h:body>
 </html>

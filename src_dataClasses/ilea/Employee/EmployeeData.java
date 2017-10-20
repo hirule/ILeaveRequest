@@ -7,27 +7,7 @@ package ilea.Employee;
 public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -3966100200578498710L;
-
-  private ilea.Data data;
-
-  /**
-   * Gets the field data.
-   * @return the value of the field data; may be null.
-   */
-  public ilea.Data getData()
-  {
-    return data;
-  }
-
-  /**
-   * Sets the field data.
-   * @param _data the new value of the field data.
-   */
-  public void setData(ilea.Data _data)
-  {
-    data = _data;
-  }
+  private static final long serialVersionUID = 7584922541068023767L;
 
   private ilea.User user;
 
@@ -67,6 +47,26 @@ public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObje
   public void setLeaveRequestSection(ilea.LeaveRequestSection _leaveRequestSection)
   {
     leaveRequestSection = _leaveRequestSection;
+  }
+
+  private ilea.Data key;
+
+  /**
+   * Gets the field key.
+   * @return the value of the field key; may be null.
+   */
+  public ilea.Data getKey()
+  {
+    return key;
+  }
+
+  /**
+   * Sets the field key.
+   * @param _key the new value of the field key.
+   */
+  public void setKey(ilea.Data _key)
+  {
+    key = _key;
   }
 
 }

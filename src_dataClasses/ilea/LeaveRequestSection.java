@@ -7,7 +7,7 @@ package ilea;
 public class LeaveRequestSection extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 3810153033680531889L;
+  private static final long serialVersionUID = 1917912969889952177L;
 
   private ch.ivyteam.ivy.scripting.objects.Date startDate;
 
@@ -49,13 +49,13 @@ public class LeaveRequestSection extends ch.ivyteam.ivy.scripting.objects.Compos
     endDate = _endDate;
   }
 
-  private ilea.bean.LeaveRequestType leaveRequestType;
+  private java.lang.String leaveRequestType;
 
   /**
    * Gets the field leaveRequestType.
    * @return the value of the field leaveRequestType; may be null.
    */
-  public ilea.bean.LeaveRequestType getLeaveRequestType()
+  public java.lang.String getLeaveRequestType()
   {
     return leaveRequestType;
   }
@@ -64,7 +64,7 @@ public class LeaveRequestSection extends ch.ivyteam.ivy.scripting.objects.Compos
    * Sets the field leaveRequestType.
    * @param _leaveRequestType the new value of the field leaveRequestType.
    */
-  public void setLeaveRequestType(ilea.bean.LeaveRequestType _leaveRequestType)
+  public void setLeaveRequestType(java.lang.String _leaveRequestType)
   {
     leaveRequestType = _leaveRequestType;
   }

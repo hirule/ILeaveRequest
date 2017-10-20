@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 18 18:31:05 ICT 2017]
+[>Created: Fri Oct 20 17:32:04 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -210,7 +210,10 @@ Ls0 f14 @|StepIcon #fIcon
 Ls0 f15 expr out #txt
 Ls0 f15 280 64 328 64 #arcP
 Ls0 f10 expr out #txt
-Ls0 f10 440 64 496 64 #arcP
+Ls0 f10 384 86 512 80 #arcP
+Ls0 f10 1 384 112 #addKink
+Ls0 f10 2 512 112 #addKink
+Ls0 f10 1 0.5234375 0 0 #arcLabel
 >Proto Ls0 .type ilea.Data #txt
 >Proto Ls0 .processKind NORMAL #txt
 >Proto Ls0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

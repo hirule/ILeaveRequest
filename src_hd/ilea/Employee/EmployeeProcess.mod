@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 19 10:48:20 ICT 2017]
+[>Created: Fri Oct 20 12:07:34 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -31,20 +31,20 @@ Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <ilea.Data data> param = methodEvent.getInputArguments();
 ' #txt
-Es0 f0 inParameterMapAction 'out.data=param.data;
-' #txt
 Es0 f0 outParameterDecl '<ilea.Data data> result;
 ' #txt
-Es0 f0 outParameterMapAction 'result.data=in.data;
+Es0 f0 outParameterMapAction 'result.data=in.key;
 ' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Data)</name>
+        <name>start()</name>
+        <nameStyle>7,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f0 83 51 26 26 -29 15 #rect
+Es0 f0 84 48 24 32 -16 18 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ilea.Employee.EmployeeData #txt
 Es0 f1 339 51 26 26 0 12 #rect
@@ -89,7 +89,7 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Es0 f6 168 42 112 44 -22 -8 #rect
 Es0 f6 @|StepIcon #fIcon
 Es0 f7 expr out #txt
-Es0 f7 109 64 168 64 #arcP
+Es0 f7 108 64 168 64 #arcP
 Es0 f2 expr out #txt
 Es0 f2 280 64 339 64 #arcP
 >Proto Es0 .type ilea.Employee.EmployeeData #txt
