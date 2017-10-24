@@ -18,11 +18,10 @@ public class LoginUtil {
 		return Ivy.session().loginSessionUser(userName, password);
 	}
 	
-	public static void logOut() {
+	public static boolean logOut() {
 		Ivy.session().logoutSessionUser();
-		
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-		Ivy.log().info(externalContext.getApplicationContextPath());
+//		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+//		Ivy.log().info(externalContext.getApplicationContextPath());
 //		String targetUrl = externalContext.getApplicationContextPath() +"/wf/index.jsp?pageId=personalTasklist";
 //		http://localhost:8081/ivy/wf/index.jsp?pageId=personalTasklist
 		
@@ -36,6 +35,7 @@ public class LoginUtil {
 			Log.error(e);
 		}
 		*/
+		return true;
 	}
 	
 	public static Optional<String> getFullName(){

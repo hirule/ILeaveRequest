@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 20 17:32:04 ICT 2017]
+[>Created: Tue Oct 24 15:34:23 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -21,14 +21,18 @@ Ls0 @RichDialog f11 '' #zField
 Ls0 @PushWFArc f12 '' #zField
 Ls0 @EndTask f1 '' #zField
 Ls0 @RichDialog f2 '' #zField
-Ls0 @TaskSwitch f5 '' #zField
-Ls0 @TkArc f6 '' #zField
-Ls0 @PushWFArc f7 '' #zField
-Ls0 @PushWFArc f8 '' #zField
 Ls0 @PushWFArc f13 '' #zField
 Ls0 @GridStep f14 '' #zField
 Ls0 @PushWFArc f15 '' #zField
 Ls0 @PushWFArc f10 '' #zField
+Ls0 @EndTask f16 '' #zField
+Ls0 @SignalStartEvent f17 '' #zField
+Ls0 @UserTask f18 '' #zField
+Ls0 @TkArc f19 '' #zField
+Ls0 @PushWFArc f20 '' #zField
+Ls0 @EndTask f5 '' #zField
+Ls0 @PushWFArc f6 '' #zField
+Ls0 @PushWFArc f7 '' #zField
 >Proto Ls0 Ls0 LeaveRequestProcess #zField
 Ls0 f0 outLink start.ivp #txt
 Ls0 f0 type ilea.Data #txt
@@ -102,7 +106,7 @@ Ls0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f11 584 42 112 44 -27 -8 #rect
+Ls0 f11 592 42 112 44 -27 -8 #rect
 Ls0 f11 @|RichDialogIcon #fIcon
 Ls0 f12 expr in #txt
 Ls0 f12 outCond in.currentRole.equalsIgnoreCase(String.valueOf(login.LoginRoleType.EMPLOYEE)) #txt
@@ -115,12 +119,13 @@ Ls0 f12 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f12 528 64 584 64 #arcP
+Ls0 f12 528 64 592 64 #arcP
 Ls0 f1 type ilea.Data #txt
-Ls0 f1 1009 49 30 30 0 15 #rect
+Ls0 f1 849 49 30 30 0 15 #rect
 Ls0 f1 @|EndIcon #fIcon
 Ls0 f2 targetWindow NEW:card: #txt
 Ls0 f2 targetDisplay TOP #txt
+Ls0 f2 richDialogId ilea.Superior #txt
 Ls0 f2 startMethod start() #txt
 Ls0 f2 type ilea.Data #txt
 Ls0 f2 requestActionDecl '<> param;' #txt
@@ -141,40 +146,8 @@ Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f2 808 42 112 44 -23 -8 #rect
+Ls0 f2 592 162 112 44 -23 -8 #rect
 Ls0 f2 @|RichDialogIcon #fIcon
-Ls0 f5 actionDecl 'ilea.Data out;
-' #txt
-Ls0 f5 actionTable 'out=in1;
-' #txt
-Ls0 f5 outTypes "ilea.Data" #txt
-Ls0 f5 outLinks "TaskA.ivp" #txt
-Ls0 f5 taskAction 'import ch.ivyteam.ivy.workflow.TaskDefinition;
-List<TaskDefinition> taskDefinitions;
-TaskDefinition taskDef;import ch.ivyteam.ivy.request.impl.DefaultCalendarProxy;
-DefaultCalendarProxy calendarProxy = ivy.cal as DefaultCalendarProxy;
-taskDef = new TaskDefinition();
-taskDef.setStartRequestPath("TaskA.ivp");
-taskDef.setAutoStartTask(false);
-taskDef.setActivator("Everybody");
-taskDef.setPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDef.setExpiryActivator("Everybody");
-taskDef.setExpiryPriority(ch.ivyteam.ivy.workflow.WorkflowPriority.valueOf(2));
-taskDefinitions.add(taskDef);
-' #txt
-Ls0 f5 type ilea.Data #txt
-Ls0 f5 template "" #txt
-Ls0 f5 736 48 32 32 0 16 #rect
-Ls0 f5 @|TaskSwitchIcon #fIcon
-Ls0 f6 expr out #txt
-Ls0 f6 type ilea.Data #txt
-Ls0 f6 var in1 #txt
-Ls0 f6 696 64 736 64 #arcP
-Ls0 f7 expr data #txt
-Ls0 f7 outCond ivp=="TaskA.ivp" #txt
-Ls0 f7 768 64 808 64 #arcP
-Ls0 f8 expr out #txt
-Ls0 f8 920 64 1009 64 #arcP
 Ls0 f13 expr in #txt
 Ls0 f13 outCond in.currentRole.equalsIgnoreCase(String.valueOf(login.LoginRoleType.SUPERIOR)) #txt
 Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -186,15 +159,15 @@ Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f13 512 80 864 86 #arcP
-Ls0 f13 1 512 144 #addKink
-Ls0 f13 2 864 144 #addKink
-Ls0 f13 1 0.4914772727272727 0 0 #arcLabel
+Ls0 f13 512 80 592 184 #arcP
+Ls0 f13 1 512 184 #addKink
+Ls0 f13 1 0.032804232804232884 0 0 #arcLabel
 Ls0 f14 actionDecl 'ilea.Data out;
 ' #txt
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode 'out.currentRole = ivy.session.getSessionUser().getRoles().get(1).getName();' #txt
+Ls0 f14 actionCode 'out.currentRole = ivy.session.getSessionUser().getRoles().get(1).getName();
+ivy.log.debug(out.currentRole);' #txt
 Ls0 f14 type ilea.Data #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -210,10 +183,79 @@ Ls0 f14 @|StepIcon #fIcon
 Ls0 f15 expr out #txt
 Ls0 f15 280 64 328 64 #arcP
 Ls0 f10 expr out #txt
-Ls0 f10 384 86 512 80 #arcP
-Ls0 f10 1 384 112 #addKink
-Ls0 f10 2 512 112 #addKink
-Ls0 f10 1 0.5234375 0 0 #arcLabel
+Ls0 f10 440 64 496 64 #arcP
+Ls0 f16 type ilea.Data #txt
+Ls0 f16 525 357 30 30 0 15 #rect
+Ls0 f16 @|EndIcon #fIcon
+Ls0 f17 actionDecl 'ilea.Data out;
+' #txt
+Ls0 f17 actionCode 'import ilea.User;
+import com.google.gson.Gson;
+
+out.user = new Gson().fromJson(signal.getSignalData() as String, User.class) as User;
+
+//ivy.case.setBusinessObjectCode(out.user.id);
+//ivy.case.setBusinessObjectName(out.user.fullName);
+ivy.log.debug("Recieved data" + out.user);' #txt
+Ls0 f17 type ilea.Data #txt
+Ls0 f17 signalCode leave:created #txt
+Ls0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>leave:created</name>
+        <nameStyle>13,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f17 157 357 30 30 -36 17 #rect
+Ls0 f17 @|SignalStartEventIcon #fIcon
+Ls0 f18 richDialogId ilea.Superior #txt
+Ls0 f18 startMethod start() #txt
+Ls0 f18 requestActionDecl '<> param;' #txt
+Ls0 f18 responseActionDecl 'ilea.Data out;
+' #txt
+Ls0 f18 responseMappingAction 'out=result.data;
+' #txt
+Ls0 f18 outLinks "TaskA.ivp" #txt
+Ls0 f18 taskData 'TaskA.DESC=Pls help to approve leave request
+TaskA.EXPRI=2
+TaskA.EXROL=Everybody
+TaskA.EXTYPE=0
+TaskA.NAM=Leave Request
+TaskA.PRI=2
+TaskA.ROL=Superior
+TaskA.SKIP_TASK_LIST=false
+TaskA.TYPE=0
+TaskA.customFields.varchar.1=in.user.userName
+TaskA.customFields.varchar.2=in.user.fullName
+TaskA.customFields.varchar.3=in.user.id' #txt
+Ls0 f18 type ilea.Data #txt
+Ls0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Process Leave Request</name>
+        <nameStyle>21,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f18 260 350 144 44 -66 -8 #rect
+Ls0 f18 @|UserTaskIcon #fIcon
+Ls0 f19 expr out #txt
+Ls0 f19 type ilea.Data #txt
+Ls0 f19 var in1 #txt
+Ls0 f19 187 372 260 372 #arcP
+Ls0 f20 expr data #txt
+Ls0 f20 outCond ivp=="TaskA.ivp" #txt
+Ls0 f20 404 372 525 372 #arcP
+Ls0 f5 type ilea.Data #txt
+Ls0 f5 849 169 30 30 0 15 #rect
+Ls0 f5 @|EndIcon #fIcon
+Ls0 f6 expr out #txt
+Ls0 f6 704 64 849 64 #arcP
+Ls0 f7 expr out #txt
+Ls0 f7 704 184 849 184 #arcP
 >Proto Ls0 .type ilea.Data #txt
 >Proto Ls0 .processKind NORMAL #txt
 >Proto Ls0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -227,15 +269,17 @@ Ls0 f0 mainOut f4 tail #connect
 Ls0 f4 head f3 mainIn #connect
 Ls0 f9 out f12 tail #connect
 Ls0 f12 head f11 mainIn #connect
-Ls0 f11 mainOut f6 tail #connect
-Ls0 f6 head f5 in #connect
-Ls0 f5 out f7 tail #connect
-Ls0 f7 head f2 mainIn #connect
-Ls0 f2 mainOut f8 tail #connect
-Ls0 f8 head f1 mainIn #connect
 Ls0 f9 out f13 tail #connect
 Ls0 f13 head f2 mainIn #connect
 Ls0 f3 mainOut f15 tail #connect
 Ls0 f15 head f14 mainIn #connect
 Ls0 f14 mainOut f10 tail #connect
 Ls0 f10 head f9 in #connect
+Ls0 f17 mainOut f19 tail #connect
+Ls0 f19 head f18 in #connect
+Ls0 f18 out f20 tail #connect
+Ls0 f20 head f16 mainIn #connect
+Ls0 f11 mainOut f6 tail #connect
+Ls0 f6 head f1 mainIn #connect
+Ls0 f2 mainOut f7 tail #connect
+Ls0 f7 head f5 mainIn #connect

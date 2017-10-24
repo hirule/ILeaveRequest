@@ -7,7 +7,7 @@ package ilea;
 public class User extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 4598244473968278209L;
+  private static final long serialVersionUID = 710604768150048562L;
 
   private java.lang.String userName;
 
@@ -87,6 +87,26 @@ public class User extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setEmail(java.lang.String _email)
   {
     email = _email;
+  }
+
+  private java.lang.String id;
+
+  /**
+   * Gets the field id.
+   * @return the value of the field id; may be null.
+   */
+  public java.lang.String getId()
+  {
+    return id;
+  }
+
+  /**
+   * Sets the field id.
+   * @param _id the new value of the field id.
+   */
+  public void setId(java.lang.String _id)
+  {
+    id = _id;
   }
 
 }

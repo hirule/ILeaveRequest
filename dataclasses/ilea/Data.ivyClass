@@ -4,3 +4,7 @@ currentRole String #field
 currentRole PERSISTENT #fieldModifier
 id String #field
 id PERSISTENT #fieldModifier
+isLogout Boolean #field
+isLogout PERSISTENT #fieldModifier
+user ilea.User #field
+user PERSISTENT #fieldModifier

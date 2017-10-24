@@ -1,0 +1,12 @@
+TaskListComponentData #class
+ilea.component.TaskListComponent #namespace
+user ilea.User #field
+user PERSISTENT #fieldModifier
+menuModel org.primefaces.model.menu.MenuModel #field
+menuModel PERSISTENT #fieldModifier
+submitterList List<String> #field
+submitterList PERSISTENT #fieldModifier
+isEmployee Boolean #field
+isEmployee PERSISTENT #fieldModifier
+isSuperior Boolean #field
+isSuperior PERSISTENT #fieldModifier

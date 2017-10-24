@@ -7,7 +7,7 @@ package ilea;
 public class Data extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 2924147472409651934L;
+  private static final long serialVersionUID = -952270375074644745L;
 
   private java.lang.String currentRole;
 
@@ -47,6 +47,46 @@ public class Data extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setId(java.lang.String _id)
   {
     id = _id;
+  }
+
+  private java.lang.Boolean isLogout;
+
+  /**
+   * Gets the field isLogout.
+   * @return the value of the field isLogout; may be null.
+   */
+  public java.lang.Boolean getIsLogout()
+  {
+    return isLogout;
+  }
+
+  /**
+   * Sets the field isLogout.
+   * @param _isLogout the new value of the field isLogout.
+   */
+  public void setIsLogout(java.lang.Boolean _isLogout)
+  {
+    isLogout = _isLogout;
+  }
+
+  private ilea.User user;
+
+  /**
+   * Gets the field user.
+   * @return the value of the field user; may be null.
+   */
+  public ilea.User getUser()
+  {
+    return user;
+  }
+
+  /**
+   * Sets the field user.
+   * @param _user the new value of the field user.
+   */
+  public void setUser(ilea.User _user)
+  {
+    user = _user;
   }
 
 }

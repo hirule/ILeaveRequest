@@ -6,3 +6,7 @@ leaveRequestSection ilea.LeaveRequestSection #field
 leaveRequestSection PERSISTENT #fieldModifier
 leaveTypeList List<String> #field
 leaveTypeList PERSISTENT #fieldModifier
+isEmployee Boolean #field
+isEmployee PERSISTENT #fieldModifier
+isSuperior Boolean #field
+isSuperior PERSISTENT #fieldModifier

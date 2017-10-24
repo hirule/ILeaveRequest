@@ -7,7 +7,7 @@
         <displayName>EMPLOYEE</displayName>
     </role>
     <role>
-        <identifier>Superrior</identifier>
+        <identifier>Superior</identifier>
         <displayName>SUPERIOR</displayName>
     </role>
 </role>

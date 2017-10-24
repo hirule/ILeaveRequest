@@ -7,7 +7,7 @@ package ilea.component.LeaveFormComponent;
 public class LeaveFormComponentData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 6972965903176941063L;
+  private static final long serialVersionUID = 3385805286356448796L;
 
   private ilea.User user;
 
@@ -67,6 +67,46 @@ public class LeaveFormComponentData extends ch.ivyteam.ivy.scripting.objects.Com
   public void setLeaveTypeList(ch.ivyteam.ivy.scripting.objects.List<java.lang.String> _leaveTypeList)
   {
     leaveTypeList = _leaveTypeList;
+  }
+
+  private java.lang.Boolean isEmployee;
+
+  /**
+   * Gets the field isEmployee.
+   * @return the value of the field isEmployee; may be null.
+   */
+  public java.lang.Boolean getIsEmployee()
+  {
+    return isEmployee;
+  }
+
+  /**
+   * Sets the field isEmployee.
+   * @param _isEmployee the new value of the field isEmployee.
+   */
+  public void setIsEmployee(java.lang.Boolean _isEmployee)
+  {
+    isEmployee = _isEmployee;
+  }
+
+  private java.lang.Boolean isSuperior;
+
+  /**
+   * Gets the field isSuperior.
+   * @return the value of the field isSuperior; may be null.
+   */
+  public java.lang.Boolean getIsSuperior()
+  {
+    return isSuperior;
+  }
+
+  /**
+   * Sets the field isSuperior.
+   * @param _isSuperior the new value of the field isSuperior.
+   */
+  public void setIsSuperior(java.lang.Boolean _isSuperior)
+  {
+    isSuperior = _isSuperior;
   }
 
 }

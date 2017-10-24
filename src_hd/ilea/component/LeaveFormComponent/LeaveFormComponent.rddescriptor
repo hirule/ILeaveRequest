@@ -4,6 +4,18 @@
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
+        <inputParameter>
+            <name>data</name>
+            <description></description>
+            <parameterType>ilea.LeaveRequestRecord</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+        <outputParameter>
+            <name>data</name>
+            <description></description>
+            <parameterType>ilea.LeaveRequestRecord</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>

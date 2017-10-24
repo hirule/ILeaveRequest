@@ -8,3 +8,5 @@ fullName String #field
 fullName PERSISTENT #fieldModifier
 email String #field
 email PERSISTENT #fieldModifier
+id String #field
+id PERSISTENT #fieldModifier

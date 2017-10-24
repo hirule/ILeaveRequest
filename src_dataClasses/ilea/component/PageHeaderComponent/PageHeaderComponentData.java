@@ -7,7 +7,7 @@ package ilea.component.PageHeaderComponent;
 public class PageHeaderComponentData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 3034444808953719755L;
+  private static final long serialVersionUID = -2242950266767147465L;
 
   private ilea.User user;
 
@@ -27,6 +27,26 @@ public class PageHeaderComponentData extends ch.ivyteam.ivy.scripting.objects.Co
   public void setUser(ilea.User _user)
   {
     user = _user;
+  }
+
+  private java.lang.Boolean isLogout;
+
+  /**
+   * Gets the field isLogout.
+   * @return the value of the field isLogout; may be null.
+   */
+  public java.lang.Boolean getIsLogout()
+  {
+    return isLogout;
+  }
+
+  /**
+   * Sets the field isLogout.
+   * @param _isLogout the new value of the field isLogout.
+   */
+  public void setIsLogout(java.lang.Boolean _isLogout)
+  {
+    isLogout = _isLogout;
   }
 
 }

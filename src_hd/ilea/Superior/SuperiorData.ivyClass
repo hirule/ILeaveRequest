@@ -1,0 +1,6 @@
+SuperiorData #class
+ilea.Superior #namespace
+user ilea.User #field
+user PERSISTENT #fieldModifier
+leaveRequestSection ilea.LeaveRequestSection #field
+leaveRequestSection PERSISTENT #fieldModifier

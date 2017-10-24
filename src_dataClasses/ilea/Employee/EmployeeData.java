@@ -7,7 +7,7 @@ package ilea.Employee;
 public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 7584922541068023767L;
+  private static final long serialVersionUID = 6899813471893169658L;
 
   private ilea.User user;
 
@@ -49,24 +49,64 @@ public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObje
     leaveRequestSection = _leaveRequestSection;
   }
 
-  private ilea.Data key;
+  private java.lang.Boolean isEmployee;
 
   /**
-   * Gets the field key.
-   * @return the value of the field key; may be null.
+   * Gets the field isEmployee.
+   * @return the value of the field isEmployee; may be null.
    */
-  public ilea.Data getKey()
+  public java.lang.Boolean getIsEmployee()
   {
-    return key;
+    return isEmployee;
   }
 
   /**
-   * Sets the field key.
-   * @param _key the new value of the field key.
+   * Sets the field isEmployee.
+   * @param _isEmployee the new value of the field isEmployee.
    */
-  public void setKey(ilea.Data _key)
+  public void setIsEmployee(java.lang.Boolean _isEmployee)
   {
-    key = _key;
+    isEmployee = _isEmployee;
+  }
+
+  private java.lang.Boolean isSuperior;
+
+  /**
+   * Gets the field isSuperior.
+   * @return the value of the field isSuperior; may be null.
+   */
+  public java.lang.Boolean getIsSuperior()
+  {
+    return isSuperior;
+  }
+
+  /**
+   * Sets the field isSuperior.
+   * @param _isSuperior the new value of the field isSuperior.
+   */
+  public void setIsSuperior(java.lang.Boolean _isSuperior)
+  {
+    isSuperior = _isSuperior;
+  }
+
+  private java.lang.String id;
+
+  /**
+   * Gets the field id.
+   * @return the value of the field id; may be null.
+   */
+  public java.lang.String getId()
+  {
+    return id;
+  }
+
+  /**
+   * Sets the field id.
+   * @param _id the new value of the field id.
+   */
+  public void setId(java.lang.String _id)
+  {
+    id = _id;
   }
 
 }

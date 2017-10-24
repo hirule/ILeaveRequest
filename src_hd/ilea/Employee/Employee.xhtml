@@ -11,23 +11,29 @@
 		<ui:define name="title">LeaveRequest</ui:define>
 		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
 		<ui:define name="content">
-	<!-- Page header -->
 	
+			<!-- Leave Form -->
+			<ic:ilea.component.LeaveFormComponent
+				id="leave-form-component"
+				user="#{data.user}"
+				leaveRequestSection="#{data.leaveRequestSection}"
+				>
+			</ic:ilea.component.LeaveFormComponent>
+			
+<!-- 			<ic:ilea.component.LeaveFormComponent -->
+<!-- 				id="leave-form-component" -->
+<!-- 				fullName="#{data.user.fullName}" -->
+<!-- 				email="#{data.user.email}" -->
+<!-- 				startDate="#{data.leaveRequestSection.startDate}" -->
+<!-- 				endDate="#{data.leaveRequestSection.endDate}" -->
+<!-- 				leaveType="#{data.leaveRequestSection.leaveRequestType}" -->
+<!-- 				user="#{data.user}" -->
+<!-- 				leaveRequestSection="#{data.leaveRequestSection}" -->
+<!-- 				> -->
+<!-- 			</ic:ilea.component.LeaveFormComponent> -->
+			
+			<p:commandButton actionListener="#{logic.submit}" value="Submit" update="leave-form-component" icon="ui-icon-check" />
 	
-	
-	<!-- Employee Information -->
-	
-	<!-- Leave Form -->
-<!-- 	<ui:include src="LeaveFormComponent.xhtml"></ui:include> -->
-	<ic:ilea.component.LeaveFormComponent
-		id="leave-form-component"
-		fullName="#{data.user.fullName}"
-		email="#{data.user.email}"
-		startDate="#{data.leaveRequestSection.startDate}"
-		endDate="#{data.leaveRequestSection.endDate}"
-		leaveType="#{data.leaveRequestSection.leaveRequestType}"
-		>
-	</ic:ilea.component.LeaveFormComponent>
 	</ui:define>
 	</ui:composition>
 </h:body>

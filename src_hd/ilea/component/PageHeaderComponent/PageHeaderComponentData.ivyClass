@@ -2,3 +2,5 @@ PageHeaderComponentData #class
 ilea.component.PageHeaderComponent #namespace
 user ilea.User #field
 user PERSISTENT #fieldModifier
+isLogout Boolean #field
+isLogout PERSISTENT #fieldModifier
