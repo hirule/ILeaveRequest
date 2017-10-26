@@ -8,3 +8,5 @@ isLogout Boolean #field
 isLogout PERSISTENT #fieldModifier
 user ilea.User #field
 user PERSISTENT #fieldModifier
+leaveRequestRecord ilea.LeaveRequestRecord #field
+leaveRequestRecord PERSISTENT #fieldModifier

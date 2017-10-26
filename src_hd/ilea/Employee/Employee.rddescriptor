@@ -5,17 +5,17 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>data</name>
+            <name>leaveRequestSection</name>
             <description></description>
-            <parameterType>ilea.Data</parameterType>
+            <parameterType>ilea.LeaveRequestSection</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
-        <outputParameter>
-            <name>data</name>
+        <inputParameter>
+            <name>user</name>
             <description></description>
-            <parameterType>ilea.Data</parameterType>
+            <parameterType>ilea.User</parameterType>
             <nullPermitted>false</nullPermitted>
-        </outputParameter>
+        </inputParameter>
     </startMethod>
     <property>
         <name>guid</name>

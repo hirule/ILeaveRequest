@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 24 15:20:52 ICT 2017]
+[>Created: Wed Oct 25 22:48:24 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -38,23 +38,26 @@ Es0 @PushWFArc f19 '' #zField
 >Proto Es0 Es0 EmployeeProcess #zField
 Es0 f0 guid 15F2E5AC6C7B6C91 #txt
 Es0 f0 type ilea.Employee.EmployeeData #txt
-Es0 f0 method start(ilea.Data) #txt
+Es0 f0 method start(ilea.LeaveRequestSection,ilea.User) #txt
 Es0 f0 disableUIEvents true #txt
 Es0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
-<ilea.Data data> param = methodEvent.getInputArguments();
+<ilea.LeaveRequestSection leaveRequestSection,ilea.User user> param = methodEvent.getInputArguments();
 ' #txt
-Es0 f0 outParameterDecl '<ilea.Data data> result;
+Es0 f0 inParameterMapAction 'out.leaveRequestSection=param.leaveRequestSection;
+out.user=param.user;
+' #txt
+Es0 f0 outParameterDecl '<> result;
 ' #txt
 Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start(Data)</name>
-        <nameStyle>11,5,7
+        <name>start(leaveRequestSection,user)</name>
+        <nameStyle>31,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f0 84 48 24 32 -29 18 #rect
+Es0 f0 84 48 24 32 -88 18 #rect
 Es0 f0 @|RichDialogInitStartIcon #fIcon
 Es0 f1 type ilea.Employee.EmployeeData #txt
 Es0 f1 339 51 26 26 0 12 #rect
@@ -94,7 +97,6 @@ String currentRole = ivy.session.getSessionUser().getRoles().get(1).getName();
 out.isEmployee = LoginRoleType.EMPLOYEE.getText().equalsIgnoreCase(currentRole);
 out.isSuperior = LoginRoleType.SUPERIOR.getText().equalsIgnoreCase(currentRole);
 
-// TODO: May refactor and clean up after done
 out.user.fullName = ivy.session.getSessionUser().getFullName();
 out.user.email = ivy.session.getSessionUser().getEMailAddress();' #txt
 Es0 f6 type ilea.Employee.EmployeeData #txt
@@ -155,9 +157,8 @@ import ilea.User;
 import ilea.LeaveRequestRecord;
 
 ivy.log.debug(out);
-// Setup Leave Request Record
-LeaveRequestRecord record = new LeaveRequestRecord();
 
+LeaveRequestRecord record = new LeaveRequestRecord();
 User user = new User();
 user.email = ivy.session.getSessionUser().getEMailAddress();
 user.fullName = ivy.session.getSessionUser().getFullName();
@@ -191,6 +192,8 @@ Es0 f9 actionDecl 'ilea.Employee.EmployeeData out;
 ' #txt
 Es0 f9 actionTable 'out=in;
 ' #txt
+Es0 f9 actionCode 'ivy.log.info("Employee - submit:", out);
+ivy.log.debug(out);' #txt
 Es0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

@@ -1,6 +1,8 @@
 package login;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.faces.context.ExternalContext;
@@ -10,6 +12,7 @@ import org.jfree.util.Log;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.security.IUser;
+import ch.ivyteam.ivy.workflow.ITask;
 
 public class LoginUtil {
 	
@@ -20,13 +23,13 @@ public class LoginUtil {
 	
 	public static boolean logOut() {
 		Ivy.session().logoutSessionUser();
-//		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 //		Ivy.log().info(externalContext.getApplicationContextPath());
 //		String targetUrl = externalContext.getApplicationContextPath() +"/wf/index.jsp?pageId=personalTasklist";
 //		http://localhost:8081/ivy/wf/index.jsp?pageId=personalTasklist
 		
 		// TODO: Trung: targetUrl should be added to config
-		/*
+		
 		String targetUrl = externalContext.getApplicationContextPath() +"/faces/instances/15F32D5D995DE154/Login.xhtml";
 //		http://localhost:8081/ivy/faces/instances/15F32D5D995DE154/Login.xhtml
 		 try {
@@ -34,7 +37,7 @@ public class LoginUtil {
 		} catch (IOException e) {
 			Log.error(e);
 		}
-		*/
+		
 		return true;
 	}
 	

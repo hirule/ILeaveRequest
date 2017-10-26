@@ -10,3 +10,5 @@ isEmployee Boolean #field
 isEmployee PERSISTENT #fieldModifier
 isSuperior Boolean #field
 isSuperior PERSISTENT #fieldModifier
+iTasks List<ch.ivyteam.ivy.workflow.ITask> #field
+iTasks PERSISTENT #fieldModifier

@@ -4,3 +4,11 @@ user ilea.User #field
 user PERSISTENT #fieldModifier
 leaveRequestSection ilea.LeaveRequestSection #field
 leaveRequestSection PERSISTENT #fieldModifier
+tasks List<ch.ivyteam.ivy.workflow.ITask> #field
+tasks PERSISTENT #fieldModifier
+id String #field
+id PERSISTENT #fieldModifier
+leaveRequestRecord ilea.LeaveRequestRecord #field
+leaveRequestRecord PERSISTENT #fieldModifier
+taskMap java.util.HashMap #field
+taskMap PERSISTENT #fieldModifier

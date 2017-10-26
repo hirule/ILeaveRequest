@@ -11,10 +11,10 @@
 		<ui:define name="title">LeaveRequest</ui:define>
 		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
 		<ui:define name="content">
-	
+		
+		<h:form id ="leave-form-component">
 			<!-- Leave Form -->
 			<ic:ilea.component.LeaveFormComponent
-				id="leave-form-component"
 				user="#{data.user}"
 				leaveRequestSection="#{data.leaveRequestSection}"
 				>
@@ -33,7 +33,7 @@
 <!-- 			</ic:ilea.component.LeaveFormComponent> -->
 			
 			<p:commandButton actionListener="#{logic.submit}" value="Submit" update="leave-form-component" icon="ui-icon-check" />
-	
+		</h:form>
 	</ui:define>
 	</ui:composition>
 </h:body>

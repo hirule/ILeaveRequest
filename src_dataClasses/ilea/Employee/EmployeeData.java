@@ -7,7 +7,7 @@ package ilea.Employee;
 public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 6899813471893169658L;
+  private static final long serialVersionUID = 8877108479440552153L;
 
   private ilea.User user;
 
@@ -107,6 +107,26 @@ public class EmployeeData extends ch.ivyteam.ivy.scripting.objects.CompositeObje
   public void setId(java.lang.String _id)
   {
     id = _id;
+  }
+
+  private ilea.LeaveRequestRecord leaveRequestRecord;
+
+  /**
+   * Gets the field leaveRequestRecord.
+   * @return the value of the field leaveRequestRecord; may be null.
+   */
+  public ilea.LeaveRequestRecord getLeaveRequestRecord()
+  {
+    return leaveRequestRecord;
+  }
+
+  /**
+   * Sets the field leaveRequestRecord.
+   * @param _leaveRequestRecord the new value of the field leaveRequestRecord.
+   */
+  public void setLeaveRequestRecord(ilea.LeaveRequestRecord _leaveRequestRecord)
+  {
+    leaveRequestRecord = _leaveRequestRecord;
   }
 
 }

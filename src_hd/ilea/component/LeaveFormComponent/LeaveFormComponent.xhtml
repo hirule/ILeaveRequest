@@ -24,7 +24,7 @@
     
     <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
     <h3>Leave Request</h3>
-    <h:form id="form-leave-request-section">
+<!--     <h:form > -->
 				<h:panelGrid columns="2">
 				<!-- 
 					<f:facet name="header">
@@ -33,22 +33,22 @@
 					 -->
 					
 					<p:outputLabel for="startDate" value="Start Date:"/>
-					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15">
+					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15" disabled="#{data.isSuperior}">
 						<f:convertDateTime pattern="dd.MM.yyyy" />
 					</p:calendar>
 					
 					<p:outputLabel for="endDate" value="End Date:"/>
-					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15">
+					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15" disabled="#{data.isSuperior}">
 						<f:convertDateTime pattern="dd.MM.yyyy" />
 					</p:calendar>
 					
 					<p:outputLabel for="leave-type" value="Type:"/>
-					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection">
+					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection" disabled="#{data.isSuperior}">
 				    	<f:selectItems value="#{data.leaveTypeList}" var="leaveType"
 				    	itemLabel="#{leaveType}" itemValue="#{leaveType}" />
 			        </p:selectOneRadio>
 				</h:panelGrid>
-			</h:form>
+<!-- 			</h:form> -->
     
   </cc:implementation>
 </html>

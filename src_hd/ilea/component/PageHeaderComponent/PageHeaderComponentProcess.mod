@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 23 14:27:09 ICT 2017]
+[>Created: Thu Oct 26 18:26:23 ICT 2017]
 15F2E5F8FF71E34C 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PageHeaderComponentProcess Big #zClass
@@ -28,6 +28,9 @@ Ps0 @GridStep f11 '' #zField
 Ps0 @PushWFArc f12 '' #zField
 Ps0 @PushWFArc f2 '' #zField
 Ps0 @PushWFArc f8 '' #zField
+Ps0 @ErrorBoundaryEvent f13 '' #zField
+Ps0 @ErrorEnd f14 '' #zField
+Ps0 @PushWFArc f15 '' #zField
 >Proto Ps0 Ps0 PageHeaderComponentProcess #zField
 Ps0 f0 guid 15F2E5F9002C36BA #txt
 Ps0 f0 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
@@ -96,8 +99,18 @@ Ps0 f9 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData ou
 ' #txt
 Ps0 f9 actionTable 'out=in;
 ' #txt
-Ps0 f9 actionCode 'ivy.session.logoutSessionUser();
-out.isLogout = true;' #txt
+Ps0 f9 actionCode 'import ch.ivyteam.util.IvyException;
+import ch.ivyteam.ivy.bpm.error.BpmError;
+import javax.faces.context.FacesContext;
+
+ivy.session.logoutSessionUser();
+BpmError.create("logout:code").throwError();
+
+//out.isLogout = true;
+//FacesContext.getCurrentInstance().getExternalContext().redirect("Start Processes/LeaveRequestProcess/start.ivp");
+
+
+' #txt
 Ps0 f9 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 Ps0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -141,6 +154,35 @@ Ps0 f2 expr out #txt
 Ps0 f2 280 64 339 64 #arcP
 Ps0 f8 expr out #txt
 Ps0 f8 280 288 499 288 #arcP
+Ps0 f13 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData out;
+' #txt
+Ps0 f13 actionTable 'out=in;
+' #txt
+Ps0 f13 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
+Ps0 f13 errorCode logout:code #txt
+Ps0 f13 attachedToRef 15F2E5F8FF71E34C-f9 #txt
+Ps0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+        <nameStyle>11,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f13 241 305 30 30 -32 17 #rect
+Ps0 f13 @|ErrorBoundaryEventIcon #fIcon
+Ps0 f14 errorCode logout:code #txt
+Ps0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Ps0 f14 241 401 30 30 -32 17 #rect
+Ps0 f14 @|ErrorEndIcon #fIcon
+Ps0 f15 256 335 256 401 #arcP
 >Proto Ps0 .type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 >Proto Ps0 .processKind HTML_DIALOG #txt
 >Proto Ps0 -8 -8 16 16 16 26 #rect
@@ -155,3 +197,5 @@ Ps0 f11 mainOut f2 tail #connect
 Ps0 f2 head f1 mainIn #connect
 Ps0 f9 mainOut f8 tail #connect
 Ps0 f8 head f7 mainIn #connect
+Ps0 f13 mainOut f15 tail #connect
+Ps0 f15 head f14 mainIn #connect

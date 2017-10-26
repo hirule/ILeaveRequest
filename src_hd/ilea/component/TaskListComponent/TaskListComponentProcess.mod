@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 24 10:44:09 ICT 2017]
+[>Created: Tue Oct 24 18:16:08 ICT 2017]
 15F3DECBBE790B16 3.18 #module
 >Proto >Proto Collection #zClass
 Ts0 TaskListComponentProcess Big #zClass
@@ -23,6 +23,9 @@ Ts0 @PushWFArc f5 '' #zField
 Ts0 @GridStep f6 '' #zField
 Ts0 @PushWFArc f7 '' #zField
 Ts0 @PushWFArc f2 '' #zField
+Ts0 @RichDialogProcessStart f8 '' #zField
+Ts0 @RichDialogEnd f9 '' #zField
+Ts0 @PushWFArc f10 '' #zField
 >Proto Ts0 Ts0 TaskListComponentProcess #zField
 Ts0 f0 guid 15F3DECBC11A16CC #txt
 Ts0 f0 type ilea.component.TaskListComponent.TaskListComponentData #txt
@@ -104,6 +107,29 @@ Ts0 f7 expr out #txt
 Ts0 f7 109 64 168 64 #arcP
 Ts0 f2 expr out #txt
 Ts0 f2 280 64 339 64 #arcP
+Ts0 f8 guid 15F4E14DE0D3A24C #txt
+Ts0 f8 type ilea.component.TaskListComponent.TaskListComponentData #txt
+Ts0 f8 actionDecl 'ilea.component.TaskListComponent.TaskListComponentData out;
+' #txt
+Ts0 f8 actionTable 'out=in;
+' #txt
+Ts0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>processTask</name>
+        <nameStyle>11,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ts0 f8 83 275 26 26 -36 15 #rect
+Ts0 f8 @|RichDialogProcessStartIcon #fIcon
+Ts0 f9 type ilea.component.TaskListComponent.TaskListComponentData #txt
+Ts0 f9 guid 15F4E14F0A7BBBB6 #txt
+Ts0 f9 339 275 26 26 0 12 #rect
+Ts0 f9 @|RichDialogEndIcon #fIcon
+Ts0 f10 expr out #txt
+Ts0 f10 109 288 339 288 #arcP
 >Proto Ts0 .type ilea.component.TaskListComponent.TaskListComponentData #txt
 >Proto Ts0 .processKind HTML_DIALOG #txt
 >Proto Ts0 -8 -8 16 16 16 26 #rect
@@ -114,3 +140,5 @@ Ts0 f0 mainOut f7 tail #connect
 Ts0 f7 head f6 mainIn #connect
 Ts0 f6 mainOut f2 tail #connect
 Ts0 f2 head f1 mainIn #connect
+Ts0 f8 mainOut f10 tail #connect
+Ts0 f10 head f9 mainIn #connect

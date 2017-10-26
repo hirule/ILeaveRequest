@@ -12,29 +12,41 @@
  		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
 		<ui:define name="content">
 	
+	<h:form id="leave-form-component">
+	<h:outputText value="#{data.user}"></h:outputText>
+	<h:outputText value="#{data.leaveRequestSection}"></h:outputText>
 	<p:layout>
 	    <p:layoutUnit position="west" resizable="true" size="20%">
-	        <ic:ilea.component.TaskListComponent></ic:ilea.component.TaskListComponent>
+			  <ui:repeat var="task" value="#{data.tasks}">
+<!-- 			   <p:commandLink update="leave-form-component" actionListener="#{logic.fillData}"> -->
+<!-- 			          <h:outputText value="#{task.getCustomVarCharField2()}" /> -->
+<!-- 		     </p:commandLink> -->
+				     
+				<p:commandLink value="#{task.getCustomVarCharField2()}">
+					<p:ajax event="click" listener="#{logic.fillData(task.getCustomVarCharField3())}"
+       				update="leave-form-component" />
+				</p:commandLink> <br></br>
+
+      		</ui:repeat>
+	        
 	    </p:layoutUnit>
 	 	
 	    <p:layoutUnit position="center" resizable="true" size="80%">
 			<!-- Leave Form -->
 			<ic:ilea.component.LeaveFormComponent
-				id="leave-form-component"
-				fullName="#{data.user.fullName}"
-				email="#{data.user.email}"
-				startDate="#{data.leaveRequestSection.startDate}"
-				endDate="#{data.leaveRequestSection.endDate}"
-				leaveType="#{data.leaveRequestSection.leaveRequestType}"
+				user="#{data.user}"
+				leaveRequestSection="#{data.leaveRequestSection}"
 				>
 			</ic:ilea.component.LeaveFormComponent>
 				<h:panelGrid columns="2">
 					<p:commandButton actionListener="#{logic.approve}" value="Approve" update="leave-form-component" icon="ui-icon-check" />
 					<p:commandButton actionListener="#{logic.reject}" value="Reject" update="leave-form-component" icon="ui-icon-check" />
 				</h:panelGrid>
+		
 	    </p:layoutUnit>
+	    
 	</p:layout>
-	
+	</h:form>
 	</ui:define>
 	</ui:composition>
 </h:body>

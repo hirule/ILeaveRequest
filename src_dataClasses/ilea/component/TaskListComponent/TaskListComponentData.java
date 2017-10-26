@@ -7,7 +7,7 @@ package ilea.component.TaskListComponent;
 public class TaskListComponentData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 7205856515229298349L;
+  private static final long serialVersionUID = -1676632776877572678L;
 
   private ilea.User user;
 
@@ -107,6 +107,26 @@ public class TaskListComponentData extends ch.ivyteam.ivy.scripting.objects.Comp
   public void setIsSuperior(java.lang.Boolean _isSuperior)
   {
     isSuperior = _isSuperior;
+  }
+
+  private ch.ivyteam.ivy.scripting.objects.List<ch.ivyteam.ivy.workflow.ITask> iTasks;
+
+  /**
+   * Gets the field iTasks.
+   * @return the value of the field iTasks; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<ch.ivyteam.ivy.workflow.ITask> getITasks()
+  {
+    return iTasks;
+  }
+
+  /**
+   * Sets the field iTasks.
+   * @param _iTasks the new value of the field iTasks.
+   */
+  public void setITasks(ch.ivyteam.ivy.scripting.objects.List<ch.ivyteam.ivy.workflow.ITask> _iTasks)
+  {
+    iTasks = _iTasks;
   }
 
 }
