@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 02:31:04 ICT 2017]
+[>Created: Fri Oct 27 02:46:57 ICT 2017]
 15F4C4D3C5D8220F 3.18 #module
 >Proto >Proto Collection #zClass
 Ss0 SuperiorProcess Big #zClass
@@ -268,6 +268,7 @@ ITask task = TaskHelper.getLeaveRequestTask(out.id);
 if (task != null) {
 	task.destroy();
 }
+out.tasks = TaskHelper.getListITaskFromSystem();
 
 ' #txt
 Ss0 f9 security system #txt
@@ -296,7 +297,8 @@ import ilead.leaveform.init.TaskHelper;
 ITask task = TaskHelper.getLeaveRequestTask(out.id);
 if (task != null) {
 	task.destroy();
-}' #txt
+}
+out.tasks = TaskHelper.getListITaskFromSystem();' #txt
 Ss0 f21 security system #txt
 Ss0 f21 type ilea.Superior.SuperiorData #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -321,7 +323,7 @@ Ss0 f29 type ilea.Superior.SuperiorData #txt
 Ss0 f29 600 320 32 32 0 16 #rect
 Ss0 f29 @|AlternativeIcon #fIcon
 Ss0 f7 expr in #txt
-Ss0 f7 outCond ilead.leaveform.init.TaskHelper.getListITaskFromSystem().isEmpty() #txt
+Ss0 f7 outCond in.tasks.isEmpty() #txt
 Ss0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -333,7 +335,7 @@ Ss0 f7 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f7 632 336 812 337 #arcP
 Ss0 f31 expr in #txt
-Ss0 f31 outCond !ilead.leaveform.init.TaskHelper.getListITaskFromSystem().isEmpty() #txt
+Ss0 f31 outCond !in.tasks.isEmpty() #txt
 Ss0 f31 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
