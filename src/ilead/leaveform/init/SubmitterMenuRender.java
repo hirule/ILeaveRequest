@@ -42,8 +42,10 @@ public class SubmitterMenuRender {
 		
 		for (ITask task : getListITaskFromSystem()) {
 			DefaultMenuItem item = new DefaultMenuItem(task.getCustomVarCharField2());
-			item.setCommand("getLeaveDetail(" + task.getCustomVarCharField3() + ")");
+//			item.setCommand("#{logic.processTask(" + task.getCustomVarCharField3() + ")}");
+			item.setCommand("#{logic.processTask}");
 			menuModel.addElement(item);
+			
 		}
 		
 	}

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Oct 24 15:34:23 ICT 2017]
+[>Created: Thu Oct 26 01:24:32 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -20,8 +20,6 @@ Ls0 @Alternative f9 '' #zField
 Ls0 @RichDialog f11 '' #zField
 Ls0 @PushWFArc f12 '' #zField
 Ls0 @EndTask f1 '' #zField
-Ls0 @RichDialog f2 '' #zField
-Ls0 @PushWFArc f13 '' #zField
 Ls0 @GridStep f14 '' #zField
 Ls0 @PushWFArc f15 '' #zField
 Ls0 @PushWFArc f10 '' #zField
@@ -33,6 +31,8 @@ Ls0 @PushWFArc f20 '' #zField
 Ls0 @EndTask f5 '' #zField
 Ls0 @PushWFArc f6 '' #zField
 Ls0 @PushWFArc f7 '' #zField
+Ls0 @PushWFArc f13 '' #zField
+Ls0 @RichDialog f2 '' #zField
 >Proto Ls0 Ls0 LeaveRequestProcess #zField
 Ls0 f0 outLink start.ivp #txt
 Ls0 f0 type ilea.Data #txt
@@ -86,9 +86,9 @@ Ls0 f9 @|AlternativeIcon #fIcon
 Ls0 f11 targetWindow NEW:card: #txt
 Ls0 f11 targetDisplay TOP #txt
 Ls0 f11 richDialogId ilea.Employee #txt
-Ls0 f11 startMethod start(ilea.Data) #txt
+Ls0 f11 startMethod start(ilea.LeaveRequestSection,ilea.User) #txt
 Ls0 f11 type ilea.Data #txt
-Ls0 f11 requestActionDecl '<ilea.Data data> param;' #txt
+Ls0 f11 requestActionDecl '<ilea.LeaveRequestSection leaveRequestSection, ilea.User user> param;' #txt
 Ls0 f11 responseActionDecl 'ilea.Data out;
 ' #txt
 Ls0 f11 responseMappingAction 'out=in;
@@ -123,45 +123,6 @@ Ls0 f12 528 64 592 64 #arcP
 Ls0 f1 type ilea.Data #txt
 Ls0 f1 849 49 30 30 0 15 #rect
 Ls0 f1 @|EndIcon #fIcon
-Ls0 f2 targetWindow NEW:card: #txt
-Ls0 f2 targetDisplay TOP #txt
-Ls0 f2 richDialogId ilea.Superior #txt
-Ls0 f2 startMethod start() #txt
-Ls0 f2 type ilea.Data #txt
-Ls0 f2 requestActionDecl '<> param;' #txt
-Ls0 f2 responseActionDecl 'ilea.Data out;
-' #txt
-Ls0 f2 responseMappingAction 'out=in;
-' #txt
-Ls0 f2 windowConfiguration '* ' #txt
-Ls0 f2 isAsynch false #txt
-Ls0 f2 isInnerRd false #txt
-Ls0 f2 userContext '* ' #txt
-Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Superior</name>
-        <nameStyle>8,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ls0 f2 592 162 112 44 -23 -8 #rect
-Ls0 f2 @|RichDialogIcon #fIcon
-Ls0 f13 expr in #txt
-Ls0 f13 outCond in.currentRole.equalsIgnoreCase(String.valueOf(login.LoginRoleType.SUPERIOR)) #txt
-Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Superior</name>
-        <nameStyle>8,7
-</nameStyle>
-    </language>
-</elementInfo>
-' #txt
-Ls0 f13 512 80 592 184 #arcP
-Ls0 f13 1 512 184 #addKink
-Ls0 f13 1 0.032804232804232884 0 0 #arcLabel
 Ls0 f14 actionDecl 'ilea.Data out;
 ' #txt
 Ls0 f14 actionTable 'out=in;
@@ -211,11 +172,9 @@ Ls0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ls0 f17 157 357 30 30 -36 17 #rect
 Ls0 f17 @|SignalStartEventIcon #fIcon
 Ls0 f18 richDialogId ilea.Superior #txt
-Ls0 f18 startMethod start() #txt
-Ls0 f18 requestActionDecl '<> param;' #txt
+Ls0 f18 startMethod start(ilea.LeaveRequestSection,ilea.User) #txt
+Ls0 f18 requestActionDecl '<ilea.LeaveRequestSection leaveRequestSection, ilea.User user> param;' #txt
 Ls0 f18 responseActionDecl 'ilea.Data out;
-' #txt
-Ls0 f18 responseMappingAction 'out=result.data;
 ' #txt
 Ls0 f18 outLinks "TaskA.ivp" #txt
 Ls0 f18 taskData 'TaskA.DESC=Pls help to approve leave request
@@ -256,6 +215,45 @@ Ls0 f6 expr out #txt
 Ls0 f6 704 64 849 64 #arcP
 Ls0 f7 expr out #txt
 Ls0 f7 704 184 849 184 #arcP
+Ls0 f13 expr in #txt
+Ls0 f13 outCond in.currentRole.equalsIgnoreCase(String.valueOf(login.LoginRoleType.SUPERIOR)) #txt
+Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Superior</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f13 512 80 592 184 #arcP
+Ls0 f13 1 512 184 #addKink
+Ls0 f13 1 0.032804232804232884 0 0 #arcLabel
+Ls0 f2 targetWindow NEW:card: #txt
+Ls0 f2 targetDisplay TOP #txt
+Ls0 f2 richDialogId ilea.Superior #txt
+Ls0 f2 startMethod start(ilea.LeaveRequestSection,ilea.User) #txt
+Ls0 f2 type ilea.Data #txt
+Ls0 f2 requestActionDecl '<ilea.LeaveRequestSection leaveRequestSection, ilea.User user> param;' #txt
+Ls0 f2 responseActionDecl 'ilea.Data out;
+' #txt
+Ls0 f2 responseMappingAction 'out=in;
+' #txt
+Ls0 f2 windowConfiguration '* ' #txt
+Ls0 f2 isAsynch false #txt
+Ls0 f2 isInnerRd false #txt
+Ls0 f2 userContext '* ' #txt
+Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Superior</name>
+        <nameStyle>8,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f2 592 162 112 44 -23 -8 #rect
+Ls0 f2 @|RichDialogIcon #fIcon
 >Proto Ls0 .type ilea.Data #txt
 >Proto Ls0 .processKind NORMAL #txt
 >Proto Ls0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

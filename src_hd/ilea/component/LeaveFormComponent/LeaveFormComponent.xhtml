@@ -9,9 +9,12 @@
       xmlns:pm="http://primefaces.org/mobile">
       
   <cc:interface componentType="IvyComponent">
+  	<cc:attribute name="user" />
+  	<cc:attribute name="leaveRequestSection" />
   </cc:interface>
   
   <cc:implementation>
+  <div id="#{cc.clientId}">
     <!-- Employee Info section -->
     <h3>Employee Information</h3>
     <h:panelGrid columns="2">
@@ -24,7 +27,6 @@
     
     <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
     <h3>Leave Request</h3>
-    <h:form id="form-leave-request-section">
 				<h:panelGrid columns="2">
 				<!-- 
 					<f:facet name="header">
@@ -48,7 +50,6 @@
 				    	itemLabel="#{leaveType}" itemValue="#{leaveType}" />
 			        </p:selectOneRadio>
 				</h:panelGrid>
-			</h:form>
-    
+	</div>
   </cc:implementation>
 </html>

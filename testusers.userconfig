@@ -12,4 +12,22 @@
         <fullName>Superior1</fullName>
         <role>Superior</role>
     </user>
+    <user>
+        <username>all</username>
+        <password>all</password>
+    </user>
+    <user>
+        <username>e2</username>
+        <password>e2</password>
+        <fullName>Employee 2</fullName>
+        <emailAddress>e2@gmail..com</emailAddress>
+        <role>Employee</role>
+    </user>
+    <user>
+        <username>e3</username>
+        <password>e3</password>
+        <fullName>Employee 3</fullName>
+        <emailAddress>e3@gmail.com</emailAddress>
+        <role>Employee</role>
+    </user>
 </userConfig>

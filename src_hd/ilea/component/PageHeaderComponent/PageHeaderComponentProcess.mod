@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Oct 23 14:27:09 ICT 2017]
+[>Created: Thu Oct 26 01:24:32 ICT 2017]
 15F2E5F8FF71E34C 3.18 #module
 >Proto >Proto Collection #zClass
 Ps0 PageHeaderComponentProcess Big #zClass
@@ -96,8 +96,14 @@ Ps0 f9 actionDecl 'ilea.component.PageHeaderComponent.PageHeaderComponentData ou
 ' #txt
 Ps0 f9 actionTable 'out=in;
 ' #txt
-Ps0 f9 actionCode 'ivy.session.logoutSessionUser();
-out.isLogout = true;' #txt
+Ps0 f9 actionCode 'import javax.faces.context.FacesContext;
+
+ivy.session.logoutSessionUser();
+out.isLogout = true;
+//FacesContext.getCurrentInstance().getExternalContext().redirect("Start Processes/LeaveRequestProcess/start.ivp");
+
+
+' #txt
 Ps0 f9 type ilea.component.PageHeaderComponent.PageHeaderComponentData #txt
 Ps0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

@@ -12,29 +12,85 @@
  		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
 		<ui:define name="content">
 	
+	<h:form id="leaveForm">
+	<h:outputText value="#{data.user}"></h:outputText>
+	<h:outputText value="#{data.leaveRequestSection}"></h:outputText>
 	<p:layout>
+		 
 	    <p:layoutUnit position="west" resizable="true" size="20%">
-	        <ic:ilea.component.TaskListComponent></ic:ilea.component.TaskListComponent>
+<!-- 	        <ic:ilea.component.TaskListComponent></ic:ilea.component.TaskListComponent> -->
+<!-- 							<ul class="list-group"> -->
+<!-- 								<ui:repeat var="task" value="#{data.tasks}"> -->
+<!-- 									<li class="list-group-item"><a href="#{ivy.html.taskstartref(task)}">#{task.getCustomVarCharField2()}</a></li> -->
+<!-- 								</ui:repeat> -->
+<!-- 							</ul> -->
+			  <ui:repeat var="task" value="#{data.tasks}">
+<!-- 			   <p:commandLink update="leaveForm" actionListener="#{logic.fillData}"> -->
+<!-- 			          <h:outputText value="#{task.getCustomVarCharField2()}" /> -->
+<!-- 		     </p:commandLink> -->
+				     
+				<p:commandLink value="#{task.getCustomVarCharField2()}">
+					<f:ajax event="click"  listener="#{logic.fillData(task.getCustomVarCharField3())}" render="leaveForm"></f:ajax>
+				</p:commandLink> <br></br>
+
+      		</ui:repeat>
+	        
 	    </p:layoutUnit>
 	 	
 	    <p:layoutUnit position="center" resizable="true" size="80%">
 			<!-- Leave Form -->
-			<ic:ilea.component.LeaveFormComponent
-				id="leave-form-component"
-				fullName="#{data.user.fullName}"
-				email="#{data.user.email}"
-				startDate="#{data.leaveRequestSection.startDate}"
-				endDate="#{data.leaveRequestSection.endDate}"
-				leaveType="#{data.leaveRequestSection.leaveRequestType}"
-				>
-			</ic:ilea.component.LeaveFormComponent>
+<!-- 			<ic:ilea.component.LeaveFormComponent -->
+<!-- 				id="formComponent" -->
+<!-- 				user="#{data.user}" -->
+<!-- 				leaveRequestSection="#{data.leaveRequestSection}" -->
+<!-- 				> -->
+<!-- 			</ic:ilea.component.LeaveFormComponent> -->
+
+ <!-- Employee Info section -->
+    <h3>Employee Information</h3>
+    <h:panelGrid columns="2">
+		    <p:outputLabel value="Fullname:"/>
+    		<p:outputLabel value="#{data.user.fullName}"></p:outputLabel>
+    		<p:outputLabel value="Email:"/>
+    		<p:outputLabel value="#{data.user.email}"></p:outputLabel>    
+    </h:panelGrid>
+    <br></br>
+    
+    <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
+    <h3>Leave Request</h3>
 				<h:panelGrid columns="2">
-					<p:commandButton actionListener="#{logic.approve}" value="Approve" update="leave-form-component" icon="ui-icon-check" />
-					<p:commandButton actionListener="#{logic.reject}" value="Reject" update="leave-form-component" icon="ui-icon-check" />
+				<!-- 
+					<f:facet name="header">
+						<p:messages></p:messages>
+					</f:facet>
+					 -->
+					
+					<p:outputLabel for="startDate" value="Start Date:"/>
+					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15" disabled="#{data.isSuperior}">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
+					
+					<p:outputLabel for="endDate" value="End Date:"/>
+					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15" disabled="#{data.isSuperior}">
+						<f:convertDateTime pattern="dd.MM.yyyy" />
+					</p:calendar>
+					
+					<p:outputLabel for="leave-type" value="Type:"/>
+					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection" disabled="#{data.isSuperior}">
+				    	<f:selectItems value="#{data.leaveTypeList}" var="leaveType"
+				    	itemLabel="#{leaveType}" itemValue="#{leaveType}" />
+			        </p:selectOneRadio>
 				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<p:commandButton actionListener="#{logic.approve}" value="Approve" update="leaveForm" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.reject}" value="Reject" update="leaveForm" icon="ui-icon-check" />
+				</h:panelGrid>
+		
 	    </p:layoutUnit>
+	    
 	</p:layout>
-	
+	</h:form>
 	</ui:define>
 	</ui:composition>
 </h:body>
