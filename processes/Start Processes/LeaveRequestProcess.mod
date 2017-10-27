@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Oct 26 01:24:32 ICT 2017]
+[>Created: Fri Oct 27 10:10:33 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -30,9 +30,11 @@ Ls0 @TkArc f19 '' #zField
 Ls0 @PushWFArc f20 '' #zField
 Ls0 @EndTask f5 '' #zField
 Ls0 @PushWFArc f6 '' #zField
-Ls0 @PushWFArc f7 '' #zField
 Ls0 @PushWFArc f13 '' #zField
+Ls0 @PushWFArc f7 '' #zField
 Ls0 @RichDialog f2 '' #zField
+Ls0 @ProcessException f21 '' #zField
+Ls0 @PushWFArc f22 '' #zField
 >Proto Ls0 Ls0 LeaveRequestProcess #zField
 Ls0 f0 outLink start.ivp #txt
 Ls0 f0 type ilea.Data #txt
@@ -213,8 +215,6 @@ Ls0 f5 849 169 30 30 0 15 #rect
 Ls0 f5 @|EndIcon #fIcon
 Ls0 f6 expr out #txt
 Ls0 f6 704 64 849 64 #arcP
-Ls0 f7 expr out #txt
-Ls0 f7 704 184 849 184 #arcP
 Ls0 f13 expr in #txt
 Ls0 f13 outCond in.currentRole.equalsIgnoreCase(String.valueOf(login.LoginRoleType.SUPERIOR)) #txt
 Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -229,6 +229,8 @@ Ls0 f13 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Ls0 f13 512 80 592 184 #arcP
 Ls0 f13 1 512 184 #addKink
 Ls0 f13 1 0.032804232804232884 0 0 #arcLabel
+Ls0 f7 expr out #txt
+Ls0 f7 704 184 849 184 #arcP
 Ls0 f2 targetWindow NEW:card: #txt
 Ls0 f2 targetDisplay TOP #txt
 Ls0 f2 richDialogId ilea.Superior #txt
@@ -254,6 +256,24 @@ Ls0 f2 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ls0 f2 592 162 112 44 -23 -8 #rect
 Ls0 f2 @|RichDialogIcon #fIcon
+Ls0 f21 .resExport export #txt
+Ls0 f21 actionDecl 'ilea.Data out;
+' #txt
+Ls0 f21 actionTable 'out=in;
+' #txt
+Ls0 f21 type ilea.Data #txt
+Ls0 f21 errorCode logout:code #txt
+Ls0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f21 209 129 30 30 -32 17 #rect
+Ls0 f21 @|ExceptionIcon #fIcon
+Ls0 f22 expr out #txt
+Ls0 f22 224 129 224 86 #arcP
 >Proto Ls0 .type ilea.Data #txt
 >Proto Ls0 .processKind NORMAL #txt
 >Proto Ls0 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -281,3 +301,5 @@ Ls0 f11 mainOut f6 tail #connect
 Ls0 f6 head f1 mainIn #connect
 Ls0 f2 mainOut f7 tail #connect
 Ls0 f7 head f5 mainIn #connect
+Ls0 f21 mainOut f22 tail #connect
+Ls0 f22 head f3 mainIn #connect

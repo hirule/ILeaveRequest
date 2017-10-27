@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 25 22:48:24 ICT 2017]
+[>Created: Fri Oct 27 10:17:44 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -30,11 +30,14 @@ Es0 @GridStep f13 '' #zField
 Es0 @PushWFArc f12 '' #zField
 Es0 @RichDialogProcessStart f9 '' #zField
 Es0 @PushWFArc f14 '' #zField
-Es0 @GridStep f16 '' #zField
-Es0 @RichDialogProcessStart f15 '' #zField
-Es0 @PushWFArc f17 '' #zField
-Es0 @RichDialogEnd f18 '' #zField
-Es0 @PushWFArc f19 '' #zField
+Es0 @RichDialogEnd f25 '' #zField
+Es0 @RichDialogProcessStart f24 '' #zField
+Es0 @GridStep f27 '' #zField
+Es0 @PushWFArc f34 '' #zField
+Es0 @PushWFArc f30 '' #zField
+Es0 @PushWFArc f26 '' #zField
+Es0 @ErrorBoundaryEvent f33 '' #zField
+Es0 @ErrorEnd f32 '' #zField
 >Proto Es0 Es0 EmployeeProcess #zField
 Es0 f0 guid 15F2E5AC6C7B6C91 #txt
 Es0 f0 type ilea.Employee.EmployeeData #txt
@@ -207,58 +210,84 @@ Es0 f9 83 259 26 26 -19 15 #rect
 Es0 f9 @|RichDialogProcessStartIcon #fIcon
 Es0 f14 expr out #txt
 Es0 f14 109 272 168 272 #arcP
-Es0 f16 actionDecl 'ilea.Employee.EmployeeData out;
+Es0 f25 type ilea.Employee.EmployeeData #txt
+Es0 f25 guid 15F5BC6CBB3C3B9A #txt
+Es0 f25 344 423 26 26 0 12 #rect
+Es0 f25 @|RichDialogEndIcon #fIcon
+Es0 f24 guid 15F5BD4C1F7A6C80 #txt
+Es0 f24 type ilea.Employee.EmployeeData #txt
+Es0 f24 actionDecl 'ilea.Employee.EmployeeData out;
 ' #txt
-Es0 f16 actionTable 'out=in;
+Es0 f24 actionTable 'out=in;
 ' #txt
-Es0 f16 actionCode 'import com.google.gson.Gson;
-import ch.ivyteam.ivy.process.model.value.SignalCode;
-
-// send signal with json payload
-String jsonSerializedPayload = new Gson().toJson(in.user);
-ivy.wf.signals().send(new SignalCode("leave:created"), jsonSerializedPayload);
-
-// Log info only
-ivy.log.debug(in.user);
-ivy.log.debug(in);
-' #txt
-Es0 f16 type ilea.Employee.EmployeeData #txt
-Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Es0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>Employee Send Signal ''leave:created''</name>
-        <nameStyle>36,7
+        <name>logout</name>
+        <nameStyle>6,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f16 272 392 224 48 -102 -8 #rect
-Es0 f16 @|StepIcon #fIcon
-Es0 f15 guid 15F4D636AA5E2042 #txt
-Es0 f15 type ilea.Employee.EmployeeData #txt
-Es0 f15 actionDecl 'ilea.Employee.EmployeeData out;
+Es0 f24 88 423 26 26 -17 15 #rect
+Es0 f24 @|RichDialogProcessStartIcon #fIcon
+Es0 f27 actionDecl 'ilea.Employee.EmployeeData out;
 ' #txt
-Es0 f15 actionTable 'out=in;
+Es0 f27 actionTable 'out=in;
 ' #txt
-Es0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+Es0 f27 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
+import javax.faces.context.FacesContext;
+
+ivy.session.logoutSessionUser();
+BpmError.create("logout:code").throwError();
+
+' #txt
+Es0 f27 type ilea.Employee.EmployeeData #txt
+Es0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>submit_temp</name>
+        <name>Send logout:code</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Es0 f27 173 414 112 44 -48 -8 #rect
+Es0 f27 @|StepIcon #fIcon
+Es0 f34 expr out #txt
+Es0 f34 261 483 261 501 #arcP
+Es0 f30 expr out #txt
+Es0 f30 114 436 173 436 #arcP
+Es0 f26 expr out #txt
+Es0 f26 285 436 344 436 #arcP
+Es0 f33 actionDecl 'ilea.Employee.EmployeeData out;
+' #txt
+Es0 f33 actionTable 'out=in;
+' #txt
+Es0 f33 type ilea.Employee.EmployeeData #txt
+Es0 f33 errorCode logout:code #txt
+Es0 f33 attachedToRef 15F2E5AC6AC451D2-f27 #txt
+Es0 f33 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Es0 f33 246 453 30 30 -32 17 #rect
+Es0 f33 @|ErrorBoundaryEventIcon #fIcon
+Es0 f32 errorCode logout:code #txt
+Es0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
         <nameStyle>11,5,7
 </nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Es0 f15 67 403 26 26 -36 15 #rect
-Es0 f15 @|RichDialogProcessStartIcon #fIcon
-Es0 f17 expr out #txt
-Es0 f17 93 416 272 416 #arcP
-Es0 f18 type ilea.Employee.EmployeeData #txt
-Es0 f18 guid 15F4D63D1815AA65 #txt
-Es0 f18 627 403 26 26 0 12 #rect
-Es0 f18 @|RichDialogEndIcon #fIcon
-Es0 f19 expr out #txt
-Es0 f19 496 416 627 416 #arcP
+Es0 f32 246 501 30 30 -32 17 #rect
+Es0 f32 @|ErrorEndIcon #fIcon
 >Proto Es0 .type ilea.Employee.EmployeeData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect
@@ -275,7 +304,9 @@ Es0 f13 mainOut f12 tail #connect
 Es0 f12 head f8 mainIn #connect
 Es0 f9 mainOut f14 tail #connect
 Es0 f14 head f13 mainIn #connect
-Es0 f15 mainOut f17 tail #connect
-Es0 f17 head f16 mainIn #connect
-Es0 f16 mainOut f19 tail #connect
-Es0 f19 head f18 mainIn #connect
+Es0 f24 mainOut f30 tail #connect
+Es0 f30 head f27 mainIn #connect
+Es0 f27 mainOut f26 tail #connect
+Es0 f26 head f25 mainIn #connect
+Es0 f33 mainOut f34 tail #connect
+Es0 f34 head f32 mainIn #connect

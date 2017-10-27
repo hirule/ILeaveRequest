@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 02:46:57 ICT 2017]
+[>Created: Fri Oct 27 11:23:08 ICT 2017]
 15F4C4D3C5D8220F 3.18 #module
 >Proto >Proto Collection #zClass
 Ss0 SuperiorProcess Big #zClass
@@ -42,6 +42,14 @@ Ss0 @PushWFArc f7 '' #zField
 Ss0 @PushWFArc f31 '' #zField
 Ss0 @PushWFArc f6 '' #zField
 Ss0 @PushWFArc f8 '' #zField
+Ss0 @RichDialogProcessStart f24 '' #zField
+Ss0 @RichDialogEnd f25 '' #zField
+Ss0 @GridStep f27 '' #zField
+Ss0 @PushWFArc f30 '' #zField
+Ss0 @PushWFArc f26 '' #zField
+Ss0 @ErrorEnd f32 '' #zField
+Ss0 @ErrorBoundaryEvent f33 '' #zField
+Ss0 @PushWFArc f34 '' #zField
 >Proto Ss0 Ss0 SuperiorProcess #zField
 Ss0 f0 guid 15F4C4D3C7C74736 #txt
 Ss0 f0 type ilea.Superior.SuperiorData #txt
@@ -262,13 +270,25 @@ Ss0 f9 actionDecl 'ilea.Superior.SuperiorData out;
 ' #txt
 Ss0 f9 actionTable 'out=in;
 ' #txt
-Ss0 f9 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
+Ss0 f9 actionCode 'import ilea.LeaveRequestRecord;
+import ch.ivyteam.ivy.workflow.ITask;
 import ilead.leaveform.init.TaskHelper;
+
 ITask task = TaskHelper.getLeaveRequestTask(out.id);
+
 if (task != null) {
 	task.destroy();
 }
 out.tasks = TaskHelper.getListITaskFromSystem();
+if (!out.tasks.isEmpty()) {
+	LeaveRequestRecord leaveRequestRecord = TaskHelper.getLeaveDetail(out.tasks.get(0).getCustomVarCharField3());
+	out.leaveRequestRecord = leaveRequestRecord;
+	out.leaveRequestSection = leaveRequestRecord.leaveRequestSection;
+	out.user = leaveRequestRecord.user;	
+}
+
+
+
 
 ' #txt
 Ss0 f9 security system #txt
@@ -292,13 +312,22 @@ Ss0 f21 actionDecl 'ilea.Superior.SuperiorData out;
 ' #txt
 Ss0 f21 actionTable 'out=in;
 ' #txt
-Ss0 f21 actionCode 'import ch.ivyteam.ivy.workflow.ITask;
+Ss0 f21 actionCode 'import ilea.LeaveRequestRecord;
+import ch.ivyteam.ivy.workflow.ITask;
 import ilead.leaveform.init.TaskHelper;
+
 ITask task = TaskHelper.getLeaveRequestTask(out.id);
+
 if (task != null) {
 	task.destroy();
 }
-out.tasks = TaskHelper.getListITaskFromSystem();' #txt
+out.tasks = TaskHelper.getListITaskFromSystem();
+if (!out.tasks.isEmpty()) {
+	LeaveRequestRecord leaveRequestRecord = TaskHelper.getLeaveDetail(out.tasks.get(0).getCustomVarCharField3());
+	out.leaveRequestRecord = leaveRequestRecord;
+	out.leaveRequestSection = leaveRequestRecord.leaveRequestSection;
+	out.user = leaveRequestRecord.user;	
+}' #txt
 Ss0 f21 security system #txt
 Ss0 f21 type ilea.Superior.SuperiorData #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -352,6 +381,74 @@ Ss0 f6 expr out #txt
 Ss0 f6 432 283 604 332 #arcP
 Ss0 f8 expr out #txt
 Ss0 f8 447 399 603 339 #arcP
+Ss0 f24 guid 15F5BC6B097562C5 #txt
+Ss0 f24 type ilea.Superior.SuperiorData #txt
+Ss0 f24 actionDecl 'ilea.Superior.SuperiorData out;
+' #txt
+Ss0 f24 actionTable 'out=in;
+' #txt
+Ss0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout</name>
+        <nameStyle>6,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f24 51 691 26 26 -17 15 #rect
+Ss0 f24 @|RichDialogProcessStartIcon #fIcon
+Ss0 f25 type ilea.Superior.SuperiorData #txt
+Ss0 f25 guid 15F5BC6CBB3C3B9A #txt
+Ss0 f25 307 691 26 26 0 12 #rect
+Ss0 f25 @|RichDialogEndIcon #fIcon
+Ss0 f27 actionDecl 'ilea.Superior.SuperiorData out;
+' #txt
+Ss0 f27 actionTable 'out=in;
+' #txt
+Ss0 f27 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
+import javax.faces.context.FacesContext;
+
+ivy.session.logoutSessionUser();
+BpmError.create("logout:code").throwError();
+
+
+' #txt
+Ss0 f27 type ilea.Superior.SuperiorData #txt
+Ss0 f27 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Send logout:code</name>
+        <nameStyle>16,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f27 136 682 112 44 -48 -8 #rect
+Ss0 f27 @|StepIcon #fIcon
+Ss0 f30 expr out #txt
+Ss0 f30 77 704 136 704 #arcP
+Ss0 f26 expr out #txt
+Ss0 f26 248 704 307 704 #arcP
+Ss0 f32 errorCode logout:code #txt
+Ss0 f32 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f32 209 769 30 30 -32 17 #rect
+Ss0 f32 @|ErrorEndIcon #fIcon
+Ss0 f33 actionDecl 'ilea.Superior.SuperiorData out;
+' #txt
+Ss0 f33 actionTable 'out=in;
+' #txt
+Ss0 f33 type ilea.Superior.SuperiorData #txt
+Ss0 f33 attachedToRef 15F4C4D3C5D8220F-f27 #txt
+Ss0 f33 209 721 30 30 0 15 #rect
+Ss0 f33 @|ErrorBoundaryEventIcon #fIcon
+Ss0 f34 224 751 224 769 #arcP
 >Proto Ss0 .type ilea.Superior.SuperiorData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -380,3 +477,9 @@ Ss0 f14 mainOut f6 tail #connect
 Ss0 f6 head f29 in #connect
 Ss0 f16 mainOut f8 tail #connect
 Ss0 f8 head f29 in #connect
+Ss0 f24 mainOut f30 tail #connect
+Ss0 f30 head f27 mainIn #connect
+Ss0 f27 mainOut f26 tail #connect
+Ss0 f26 head f25 mainIn #connect
+Ss0 f33 mainOut f34 tail #connect
+Ss0 f34 head f32 mainIn #connect

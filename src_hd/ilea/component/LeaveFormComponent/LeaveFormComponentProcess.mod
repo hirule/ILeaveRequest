@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Wed Oct 25 16:45:57 ICT 2017]
+[>Created: Fri Oct 27 09:43:32 ICT 2017]
 15F332C4B17B1746 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveFormComponentProcess Big #zClass
@@ -20,6 +20,9 @@ Ls0 @RichDialogProcessEnd f1 '' #zField
 Ls0 @GridStep f6 '' #zField
 Ls0 @PushWFArc f7 '' #zField
 Ls0 @PushWFArc f2 '' #zField
+Ls0 @ProcessException f3 '' #zField
+Ls0 @ErrorEnd f4 '' #zField
+Ls0 @PushWFArc f5 '' #zField
 >Proto Ls0 Ls0 LeaveFormComponentProcess #zField
 Ls0 f0 guid 15F332C4B2FC47C8 #txt
 Ls0 f0 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
@@ -97,6 +100,34 @@ Ls0 f7 expr out #txt
 Ls0 f7 108 64 168 64 #arcP
 Ls0 f2 expr out #txt
 Ls0 f2 280 64 499 64 #arcP
+Ls0 f3 .resExport export #txt
+Ls0 f3 actionDecl 'ilea.component.LeaveFormComponent.LeaveFormComponentData out;
+' #txt
+Ls0 f3 actionTable 'out=in;
+' #txt
+Ls0 f3 type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
+Ls0 f3 errorCode logout:code #txt
+Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f3 49 209 30 30 -32 17 #rect
+Ls0 f3 @|ExceptionIcon #fIcon
+Ls0 f4 errorCode logout:code #txt
+Ls0 f4 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>logout:code</name>
+    </language>
+</elementInfo>
+' #txt
+Ls0 f4 241 209 30 30 -32 17 #rect
+Ls0 f4 @|ErrorEndIcon #fIcon
+Ls0 f5 expr out #txt
+Ls0 f5 79 224 241 224 #arcP
 >Proto Ls0 .type ilea.component.LeaveFormComponent.LeaveFormComponentData #txt
 >Proto Ls0 .processKind HTML_DIALOG #txt
 >Proto Ls0 -8 -8 16 16 16 26 #rect
@@ -105,3 +136,5 @@ Ls0 f0 mainOut f7 tail #connect
 Ls0 f7 head f6 mainIn #connect
 Ls0 f6 mainOut f2 tail #connect
 Ls0 f2 head f1 mainIn #connect
+Ls0 f3 mainOut f5 tail #connect
+Ls0 f5 head f4 mainIn #connect

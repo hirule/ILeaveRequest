@@ -9,26 +9,17 @@
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">LeaveRequest</ui:define>
- 		<ui:define name="header"><ui:include src="PageHeaderComponent.xhtml"></ui:include></ui:define>
 		<ui:define name="content">
-	
 	<h:form id="leaveForm">
-	<h:outputText value="#{data.user}"></h:outputText>
-	<h:outputText value="#{data.leaveRequestSection}"></h:outputText>
+	<ui:include src="PageHeaderComponent.xhtml"	></ui:include>
+ 	<h:commandLink value="Log Out" actionListener="#{logic.logout}"/>
+<!-- 	<h:outputText value="#{data.user}"></h:outputText> -->
+<!-- 	<h:outputText value="#{data.leaveRequestSection}"></h:outputText> -->
 	<p:layout>
 		 
 	    <p:layoutUnit position="west" resizable="true" size="20%">
-<!-- 	        <ic:ilea.component.TaskListComponent></ic:ilea.component.TaskListComponent> -->
-<!-- 							<ul class="list-group"> -->
-<!-- 								<ui:repeat var="task" value="#{data.tasks}"> -->
-<!-- 									<li class="list-group-item"><a href="#{ivy.html.taskstartref(task)}">#{task.getCustomVarCharField2()}</a></li> -->
-<!-- 								</ui:repeat> -->
-<!-- 							</ul> -->
+
 			  <ui:repeat var="task" value="#{data.tasks}">
-<!-- 			   <p:commandLink update="leaveForm" actionListener="#{logic.fillData}"> -->
-<!-- 			          <h:outputText value="#{task.getCustomVarCharField2()}" /> -->
-<!-- 		     </p:commandLink> -->
-				     
 				<p:commandLink value="#{task.getCustomVarCharField2()}">
 					<f:ajax event="click"  listener="#{logic.fillData(task.getCustomVarCharField3())}" render="leaveForm"></f:ajax>
 				</p:commandLink> <br></br>
@@ -38,13 +29,6 @@
 	    </p:layoutUnit>
 	 	
 	    <p:layoutUnit position="center" resizable="true" size="80%">
-			<!-- Leave Form -->
-<!-- 			<ic:ilea.component.LeaveFormComponent -->
-<!-- 				id="formComponent" -->
-<!-- 				user="#{data.user}" -->
-<!-- 				leaveRequestSection="#{data.leaveRequestSection}" -->
-<!-- 				> -->
-<!-- 			</ic:ilea.component.LeaveFormComponent> -->
 
  <!-- Employee Info section -->
     <h3>Employee Information</h3>
@@ -59,12 +43,6 @@
     <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
     <h3>Leave Request</h3>
 				<h:panelGrid columns="2">
-				<!-- 
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					 -->
-					
 					<p:outputLabel for="startDate" value="Start Date:"/>
 					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15" disabled="#{data.isSuperior}">
 						<f:convertDateTime pattern="dd.MM.yyyy" />

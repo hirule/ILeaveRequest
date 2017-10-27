@@ -13,9 +13,9 @@
 
 <cc:implementation>
 	<div class="row">
-		<div class="col-md-2">
-				<img src="https://image.ibb.co/kNOTfm/images.jpg" alt="Leave Form Logo"/>
-		</div>
+<!-- 		<div class="col-md-2"> -->
+<!-- 				<img src="https://image.ibb.co/kNOTfm/images.jpg" alt="Leave Form Logo"/> -->
+<!-- 		</div> -->
 
 		<div class="col-md-10">
 
@@ -23,15 +23,15 @@
 				<h1><h:outputText value="#{ivy.cms.co('/title/LeaveRequest')}"></h:outputText></h1>
 			</div>
 			<h:panelGroup layout="block" rendered="#{not empty data.user.userName}"
-				class="row" style="text-align:right">
-				<p>
+				class="row" style="text-align:left">
+				<h6 style="margin-left:13px">
 					Welcome,
 					<h:outputText value="#{data.user.fullName}"></h:outputText>
-					<span> <h:form>
-							<h:commandLink value="Log Out" actionListener="#{logic.logOut}"/>
-						</h:form>
-					</span>
-				</p>
+<!-- 					<span> <h:form> -->
+<!-- 							<h:commandLink value="Log Out" actionListener="#{logic.logOut}"/> -->
+<!-- 						</h:form> -->
+<!-- 					</span> -->
+				</h6>
 			</h:panelGroup>
 		</div>
 	</div>
