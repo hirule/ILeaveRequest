@@ -35,20 +35,26 @@
 					 -->
 					
 					<p:outputLabel for="startDate" value="Start Date:"/>
-					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15">
+					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15" required="true">
 						<f:convertDateTime pattern="dd.MM.yyyy" />
 					</p:calendar>
+					<br></br>
+					<p:message for="startDate"/>
 					
 					<p:outputLabel for="endDate" value="End Date:"/>
-					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15">
-						<f:convertDateTime pattern="dd.MM.yyyy" />
+					<p:calendar id="endDate" value="#{data.leaveRequestSection.endDate}" pattern="dd.MM.yyyy" size="15" required="true">
+						<f:convertDateTime pattern="dd.MM.yyyy" /> 
 					</p:calendar>
+					<br></br>
+					<p:message for="endDate"/>
 					
 					<p:outputLabel for="leave-type" value="Type:"/>
-					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection">
+					<p:selectOneRadio id="leave-type" value="#{data.leaveRequestSection.leaveRequestType}" layout="pageDirection" required="true">
 				    	<f:selectItems value="#{data.leaveTypeList}" var="leaveType"
 				    	itemLabel="#{leaveType}" itemValue="#{leaveType}" />
 			        </p:selectOneRadio>
+			        <br></br>
+					<p:message for="leave-type"/>
 				</h:panelGrid>
 	</div>
   </cc:implementation>
