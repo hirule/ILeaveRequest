@@ -13,25 +13,13 @@
 		
 		<h:form id ="leave-form-component">
 		<ui:include src="PageHeaderComponent.xhtml"	></ui:include>
-		<h:commandLink value="Log Out" actionListener="#{logic.logout}"/>
+		<h:commandLink value="Log Out" actionListener="#{logic.logout}" immediate="true" style="margin-left:916px"/>
 			<!-- Leave Form -->
 			<ic:ilea.component.LeaveFormComponent
 				user="#{data.user}"
 				leaveRequestSection="#{data.leaveRequestSection}"
 				>
 			</ic:ilea.component.LeaveFormComponent>
-			
-<!-- 			<ic:ilea.component.LeaveFormComponent -->
-<!-- 				id="leave-form-component" -->
-<!-- 				fullName="#{data.user.fullName}" -->
-<!-- 				email="#{data.user.email}" -->
-<!-- 				startDate="#{data.leaveRequestSection.startDate}" -->
-<!-- 				endDate="#{data.leaveRequestSection.endDate}" -->
-<!-- 				leaveType="#{data.leaveRequestSection.leaveRequestType}" -->
-<!-- 				user="#{data.user}" -->
-<!-- 				leaveRequestSection="#{data.leaveRequestSection}" -->
-<!-- 				> -->
-<!-- 			</ic:ilea.component.LeaveFormComponent> -->
 			
 			<p:commandButton actionListener="#{logic.submit}" value="Submit" update="leave-form-component" icon="ui-icon-check" />
 		</h:form>

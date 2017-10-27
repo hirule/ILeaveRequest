@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 10:10:33 ICT 2017]
+[>Created: Fri Oct 27 14:53:33 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -183,7 +183,7 @@ Ls0 f18 taskData 'TaskA.DESC=Pls help to approve leave request
 TaskA.EXPRI=2
 TaskA.EXROL=Everybody
 TaskA.EXTYPE=0
-TaskA.NAM=Leave Request
+TaskA.NAM=Leave Request  <%\=in.user.fullName%>
 TaskA.PRI=2
 TaskA.ROL=Superior
 TaskA.SKIP_TASK_LIST=false

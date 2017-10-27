@@ -28,15 +28,10 @@
     <!-- fields needs to be inside a h:form tag (which is normaly added by the outer page) -->
     <h3>Leave Request</h3>
 				<h:panelGrid columns="2">
-				<!-- 
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					 -->
-					
 					<p:outputLabel for="startDate" value="Start Date:"/>
 					<p:calendar id="startDate" value="#{data.leaveRequestSection.startDate}" pattern="dd.MM.yyyy" size="15" required="true">
 						<f:convertDateTime pattern="dd.MM.yyyy" />
+						<f:validator for="startDate" validatorId="ilea.leaveform.validator.FutureDateValidator"></f:validator>
 					</p:calendar>
 					<br></br>
 					<p:message for="startDate"/>
