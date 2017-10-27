@@ -20,7 +20,7 @@
 	    <p:layoutUnit position="west" resizable="true" size="20%">
 
 			  <ui:repeat var="task" value="#{data.tasks}">
-				<p:commandLink value="#{task.getCustomVarCharField2()}">
+				<p:commandLink value="#{task.getCustomVarCharField2()}" id="west#{task.getCustomVarCharField3}" styleClass="active">
 					<f:ajax event="click"  listener="#{logic.fillData(task.getCustomVarCharField3())}" render="leaveForm"></f:ajax>
 				</p:commandLink> <br></br>
 

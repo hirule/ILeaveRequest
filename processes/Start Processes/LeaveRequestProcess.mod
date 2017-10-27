@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 14:53:33 ICT 2017]
+[>Created: Fri Oct 27 15:53:57 ICT 2017]
 15F2946A74281EA8 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LeaveRequestProcess Big #zClass
@@ -129,8 +129,24 @@ Ls0 f14 actionDecl 'ilea.Data out;
 ' #txt
 Ls0 f14 actionTable 'out=in;
 ' #txt
-Ls0 f14 actionCode 'out.currentRole = ivy.session.getSessionUser().getRoles().get(1).getName();
-ivy.log.debug(out.currentRole);' #txt
+Ls0 f14 actionCode 'import java.util.ArrayList;
+import ch.ivyteam.ivy.security.IRole;
+import login.LoginRoleType;
+import ch.ivyteam.ivy.security.internal.SecurityContext;
+import org.apache.cxf.ws.security.SecurityConstants;
+
+out.currentRole = LoginRoleType.EMPLOYEE.getText();
+if (!ivy.session.getSessionUser().getRoles().isEmpty()
+		&& ivy.session.getSessionUser().getRoles().size() >= 2) {
+		out.currentRole = ivy.session.getSessionUser().getRoles().get(1).getName();
+	
+}
+
+
+ivy.log.debug("current role");
+ivy.log.debug(out.currentRole);
+' #txt
+Ls0 f14 security system #txt
 Ls0 f14 type ilea.Data #txt
 Ls0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
