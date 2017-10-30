@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 10:17:44 ICT 2017]
+[>Created: Mon Oct 30 13:07:13 ICT 2017]
 15F2E5AC6AC451D2 3.18 #module
 >Proto >Proto Collection #zClass
 Es0 EmployeeProcess Big #zClass
@@ -235,11 +235,9 @@ Es0 f27 actionDecl 'ilea.Employee.EmployeeData out;
 ' #txt
 Es0 f27 actionTable 'out=in;
 ' #txt
-Es0 f27 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
-import javax.faces.context.FacesContext;
+Es0 f27 actionCode 'import login.LoginUtil;
 
-ivy.session.logoutSessionUser();
-BpmError.create("logout:code").throwError();
+LoginUtil.logOut();
 
 ' #txt
 Es0 f27 type ilea.Employee.EmployeeData #txt

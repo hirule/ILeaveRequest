@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Oct 27 11:23:08 ICT 2017]
+[>Created: Mon Oct 30 13:07:02 ICT 2017]
 15F4C4D3C5D8220F 3.18 #module
 >Proto >Proto Collection #zClass
 Ss0 SuperiorProcess Big #zClass
@@ -406,11 +406,9 @@ Ss0 f27 actionDecl 'ilea.Superior.SuperiorData out;
 ' #txt
 Ss0 f27 actionTable 'out=in;
 ' #txt
-Ss0 f27 actionCode 'import ch.ivyteam.ivy.bpm.error.BpmError;
-import javax.faces.context.FacesContext;
+Ss0 f27 actionCode 'import login.LoginUtil;
 
-ivy.session.logoutSessionUser();
-BpmError.create("logout:code").throwError();
+LoginUtil.logOut();
 
 
 ' #txt
